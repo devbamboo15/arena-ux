@@ -1,0 +1,55 @@
+<form [formGroup]="signupForm" (submit)="signup(signupForm.value, signupForm.valid)">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input class="form-control" id="email" formControlName="email"
+           [class.is-invalid]="signupForm.controls['email'].errors && signupSubmitted" type="email">
+    <div class="mb-2 invalid-feedback">
+      Email is required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="nameFirst">User Name</label>
+    <input class="form-control" id="nameFirst" type="text" formControlName="nameFirst"
+           [class.is-invalid]="signupForm.controls['nameFirst'].errors && signupSubmitted" required>
+    <div class="mb-2 invalid-feedback">
+      username is required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <div class="input-group input-group-merge mb-3">
+      <input id="password" [type]="showPassword ? 'text' : 'password'" class="form-control form-control-prepended"
+             [class.is-invalid]="signupForm.controls['userPassword'].errors && signupSubmitted"
+             formControlName="userPassword"
+             placeholder="**********">
+      <div class="input-group-prepend">
+        <button type="button" (click)="showPassword = !showPassword" class="input-group-text">
+          <i [class]="showPassword ? 'fal fa-eye-slash' : 'fal fa-eye'"></i>
+        </button>
+      </div>
+    </div>
+    <div class="mb-2 invalid-feedback">-->
+      Must be valid password.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="userPasswordConfirmation">Confirm Password</label>
+    <div class="input-group input-group-merge mb-3">
+      <input id="userPasswordConfirmation" [type]="showConfirmPassword ? 'text' : 'password'"
+             class="form-control form-control-prepended"
+             [class.is-invalid]="signupForm.controls['userPasswordConfirmation'].errors && signupSubmitted"
+             formControlName="userPasswordConfirmation"
+             placeholder="**********">
+      <div class="input-group-prepend">
+        <button type="button" (click)="showConfirmPassword = !showConfirmPassword" class="input-group-text">
+          <i [class]="showConfirmPassword ? 'fal fa-eye-slash' : 'fal fa-eye'"></i>
+        </button>
+      </div>
+    </div>
+    <div class="mb-2 invalid-feedback">-->
+      Must be valid confirm password.
+    </div>
+  </div>
+  <div class="danger">{{signupError}}</div>
+  <button class="btn mt-3 text-center btn-primary" type="submit">Sign Up</button>
+</form>

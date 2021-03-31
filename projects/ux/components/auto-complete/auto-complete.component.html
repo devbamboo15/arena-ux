@@ -1,0 +1,6 @@
+<div class="form-group" [formGroup]="autoCompleteForm">
+  <ng-select class="form-control" [items]="data$ | async" [bindLabel]="bindLabel" [placeholder]="placeHolder"
+             [minTermLength]="minLengthTerm" [loading]="dataLoading" [typeahead]="dataInput$" formControlName="value"
+             [multiple]="isMultiSelect">
+  </ng-select>
+</div>

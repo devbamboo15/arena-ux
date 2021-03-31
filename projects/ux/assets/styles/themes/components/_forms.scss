@@ -1,0 +1,439 @@
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.form-control-rounded {
+  border-radius: $input-rounded-border-radius;
+}
+
+.form-control-flush {
+  padding-left: 0;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  resize: none;
+}
+
+.form-control:not(.custom-select) {
+  padding-right: 0;
+}
+
+.form-control-auto {
+  height: auto;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.input-group.input-group-merge {
+
+  .input-group-text {
+    background-color: $input-bg;
+    box-shadow: none !important;
+    border-color: transparent;
+  }
+
+  > .form-control {
+    border-radius: $input-border-radius;
+
+    &:focus {
+      box-shadow: none;
+
+      ~ [class*="input-group"] {
+
+        > .input-group-text {
+          border-color: transparent;
+        }
+      }
+    }
+  }
+
+  > .form-control.is-valid ~ [class*="input-group"] > .input-group-text {
+    border-color: $success;
+  }
+
+  > .form-control.is-invalid ~ [class*="input-group"] > .input-group-text {
+    border-color: $danger;
+  }
+
+  > .form-control-prepended {
+    padding-left: $input-padding-x / 2;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-left-width: 0;
+  }
+
+  > .form-control-appended {
+    padding-right: $input-padding-x / 2;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-right-width: 0;
+  }
+
+  > .input-group-prepend {
+    order: -1; // prepend always goes first
+
+    > .input-group-text {
+      padding-right: $input-padding-x / 2;
+      border-top-left-radius: $input-border-radius;
+      border-bottom-left-radius: $input-border-radius;
+      border-right-width: 0;
+      transition: $input-transition;
+      margin-right: 1px;
+    }
+  }
+
+  > .input-group-append {
+
+    > .input-group-text {
+      padding-left: $input-padding-x / 2;
+      border-top-right-radius: $input-border-radius;
+      border-bottom-right-radius: $input-border-radius;
+      border-left-width: 0;
+      transition: $input-transition;
+      margin-left: 1px;
+    }
+  }
+}
+
+.input-group-lg.input-group-merge {
+
+  > .form-control {
+    border-radius: $input-border-radius-lg;
+  }
+
+  > .form-control-prepended {
+    padding-left: $input-padding-x-lg / 2;
+
+  }
+
+  > .form-control-appended {
+    padding-right: $input-padding-x-lg / 2;
+
+  }
+
+  > .input-group-prepend {
+
+    > .input-group-text {
+      padding-right: $input-padding-x-lg / 2;
+      border-top-left-radius: $input-border-radius-lg;
+      border-bottom-left-radius: $input-border-radius-lg;
+    }
+  }
+
+  > .input-group-append {
+
+    > .input-group-text {
+      padding-left: $input-padding-x-lg / 2;
+      border-top-right-radius: $input-border-radius-lg;
+      border-bottom-right-radius: $input-border-radius-lg;
+    }
+  }
+}
+
+.input-group-sm.input-group-merge {
+
+  > .form-control {
+    border-radius: $input-border-radius-sm;
+  }
+
+  > .form-control-prepended {
+    padding-left: $input-padding-x-sm / 2;
+
+  }
+
+  > .form-control-appended {
+    padding-right: $input-padding-x-sm / 2;
+  }
+
+  > .input-group-prepend {
+
+    > .input-group-text {
+      padding-right: $input-padding-x-sm / 2;
+      border-top-left-radius: $input-border-radius-sm;
+      border-bottom-left-radius: $input-border-radius-sm;
+    }
+  }
+
+  > .input-group-append {
+
+    > .input-group-text {
+      padding-left: $input-padding-x-sm / 2;
+      border-top-right-radius: $input-border-radius-sm;
+      border-bottom-right-radius: $input-border-radius-sm;
+    }
+  }
+}
+
+.input-group-rounded.input-group-merge {
+
+  > .form-control {
+    border-radius: 20rem;
+  }
+
+  > .input-group-prepend {
+
+    > .input-group-text {
+      border-top-left-radius: 20rem;
+      border-bottom-left-radius: 20rem;
+    }
+  }
+
+  > .input-group-append {
+
+    > .input-group-text {
+      border-top-right-radius: 20rem;
+      border-bottom-right-radius: 20rem;
+    }
+  }
+}
+
+.input-group-flush {
+
+  > .form-control {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-color: transparent !important;
+    background-color: transparent !important;
+  }
+
+  > .input-group-prepend,
+  > .input-group-append {
+
+    > .input-group-text {
+      padding: 0;
+      border-width: 0;
+      background-color: transparent;
+    }
+  }
+}
+
+select.form-control, .custom-select {
+  option {
+    background-color: #222b45;
+    color: #FFFFFF;
+
+    @include hover-focus-active {
+      background-color: #222b45;
+      color: #36f;
+    }
+  }
+}
+
+//.bs-datepicker {
+//  width: 19.25rem;
+//  font-size: 13px;
+//  background: $secondary;
+//  color: $white;
+//
+//  .current {
+//    background-color: $primary;
+//    border-color: $primary;
+//    color: $white;
+//    padding: .6875rem 1.125rem;
+//    border-style: solid;
+//    text-transform: uppercase;
+//    margin-right: 0;
+//    font-size: .875rem;
+//    line-height: 1rem;
+//  }
+//
+//  @media screen and (max-width: 300px) {
+//    width: 98%;
+//    margin-left: 0;
+//
+//    th {
+//      width: 1.625rem;
+//      padding-left: 0px;
+//    }
+//  }
+//
+//  bs-years-calendar-view {
+//    td {
+//      font-size: .9375rem;
+//      font-weight: 400;
+//      line-height: 1.25rem;
+//      width: 2.24rem;
+//      height: 2.625rem;
+//      border-radius: .25rem;
+//      padding: 10px;
+//      margin: 10px;
+//      cursor: pointer;
+//
+//      &:hover {
+//        background: $primary;
+//      }
+//    }
+//
+//    .bs-datepicker-body .years {
+//      margin: auto;
+//    }
+//
+//    .bs-datepicker-head {
+//      margin: auto
+//    }
+//  }
+//
+//  bs-month-calendar-view {
+//    td {
+//      font-size: .9375rem;
+//      font-weight: 400;
+//      line-height: 1.25rem;
+//      width: 2.24rem;
+//      height: 2.625rem;
+//      border-radius: .25rem;
+//      padding: 10px;
+//      margin: 10px;
+//      cursor: pointer;
+//
+//      &:hover {
+//        background: var(--accent);
+//      }
+//    }
+//
+//    .bs-datepicker-body .months {
+//      margin: auto;
+//    }
+//
+//    .bs-datepicker-head {
+//      margin: auto
+//    }
+//  }
+//
+//  th {
+//    background: var(--secondary);
+//    height: 2.625rem;
+//    width: 3.625rem;
+//    padding-left: 10px;
+//    font-size: .75rem;
+//    font-weight: 800;
+//    color: var(--border-color-2);
+//  }
+//
+//  .is-other-month {
+//    color: var(--gray);
+//
+//    &:hover {
+//      color: var(--text);
+//    }
+//  }
+//
+//  bs-days-calendar-view {
+//    td span {
+//      display: inline-block;
+//      font-size: .9375rem;
+//      font-weight: 400;
+//      line-height: 1.25rem;
+//      width: 2.24rem;
+//      height: 2.625rem;
+//      border-radius: .25rem;
+//      padding: 10px;
+//      cursor: pointer;
+//
+//      &:hover {
+//        background: var(--accent);
+//
+//        .is-other-month {
+//          color: var(--text);
+//        }
+//      }
+//    }
+//
+//    .selected {
+//      background: var(--accent);
+//    }
+//  }
+//
+//  .bs-datepicker-head {
+//    padding: 1rem 0;
+//    display: flex;
+//    align-items: center;
+//    justify-content: space-between;
+//  }
+//
+//  .previous, .next {
+//    background: transparent;
+//    color: var(--primary);
+//    border: none;
+//    margin-left: auto;
+//    margin-right: 0.4rem;
+//  }
+//
+//  bs-datepicker-navigation-view {
+//    margin: auto;
+//  }
+//}
+
+
+.ng-select {
+  .ng-select-container {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    min-height: 0;
+    height: auto !important;
+
+    .ng-value-container {
+      padding-top: 0 !important;
+      padding-left: 0 !important;
+
+      .ng-placeholder {
+        padding: 0 !important;
+        padding-left: 3px !important;
+        top: 0 !important;
+      }
+
+      .ng-input {
+        top: 0 !important;
+        padding-left: 0 !important;
+      }
+    }
+
+    input, .ng-value {
+      color: $input-color;
+    }
+
+    .ng-value-label, .ng-value-icon {
+      background-color: #222b45;
+    }
+
+    .ng-value-icon {
+      border-color: #222b45 !important;
+    }
+
+    .ng-value-icon:hover {
+      background-color: #222b45 !important;
+      border-color: #222b45 !important;
+    }
+  }
+
+  .ng-dropdown-panel {
+    background-color: #222b45;
+    border-color: #222b45;
+
+    .ng-option {
+      background-color: #222b45;
+      color: #FFFFFF !important;
+    }
+
+    .ng-option:hover {
+      .ng-option-label {
+        color: #36f;
+      }
+    }
+
+    .ng-option-marked {
+      background-color: #222b45 !important;
+      color: #36f !important;
+    }
+
+    .ng-option-selected {
+      background-color: #222b45 !important;
+      color: #36f !important;
+    }
+  }
+
+  .ng-select.ng-select-opened > .ng-select-container {
+    border-color: transparent;
+  }
+}
+
+

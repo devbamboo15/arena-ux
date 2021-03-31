@@ -1,0 +1,17 @@
+{
+  "ngPackage": {
+    "lib": {
+      "entryFile": "public-api.ts",
+      "umdModuleIds": {
+        "@ngrx/entity": "@ngrx/entity",
+        "@ngrx/store": "@ngrx/store",
+        "pusher-js": "pusher-js",
+        "ngx-bootstrap/dropdown": "ngx-bootstrap/dropdown",
+        "ngx-toastr": "ngx-toastr",
+        "ngx-bootstrap/buttons": "ngx-bootstrap/buttons",
+        "@ngrx/effects": "@ngrx/effects",
+        "ngx-bootstrap/modal": "ngx-bootstrap/modal"
+      }
+    }
+  }
+}

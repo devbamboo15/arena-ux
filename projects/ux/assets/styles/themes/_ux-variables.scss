@@ -1,0 +1,68 @@
+$sidebar-bg: #1b212e;
+$navbar-bg: #1b212e;
+
+$navigation-dropdown-menu-bg: #333333;
+$navigation-dropdown-menu-color: $white;
+$navigation-dropdown-menu-item-color: $white;
+$navigation-dropdown-menu-item-border-color-hover: $primary;
+$navigation-dropdown-menu-item-bg-hover: #434343;
+
+$user-dropdown-menu-bg: #333333;
+$user-dropdown-menu-color: $white;
+$user-dropdown-menu-item-color: $white;
+$user-dropdown-menu-item-border-color-hover: $primary;
+$user-dropdown-menu-item-bg-hover: #434343;
+
+$notifications-dropdown-menu-bg: #333333;
+$notifications-dropdown-menu-color: $white;
+$notifications-dropdown-menu-item-color: $white;
+$notifications-dropdown-menu-item-border-color-hover: $primary;
+$notifications-dropdown-menu-item-bg-hover: #434343;
+
+$dropdown-card-min-width: 350px !default;
+$dropdown-card-border-color: $dropdown-border-color !default;
+$dropdown-card-header-min-height: 3.125rem !default;
+$dropdown-card-body-max-height: 350px !default;
+
+// Headers
+
+$header-margin-bottom: 2rem !default;
+$header-spacing-y: 1.5rem !default;
+$header-body-border-width: 1px !default;
+$header-body-border-color: $border-color !default;
+$header-body-border-color-dark: fade-out($header-body-border-color, .9) !default;
+
+// Progress
+
+$progress-height-sm: 0.25rem !default;
+
+// Brand
+$brand-color: $primary;
+$brand-project-color: $white;
+
+// Forms
+
+$input-rounded-border-radius: 20rem;
+
+// Datepicker
+
+$main-box-shadow: transparent;
+$main-bg: $gray-800-dark;
+//$custom-range-bg: $gray-900-dark;
+$border-color: transparent;
+$highlighted: $gray-900-dark;
+$btn-bg: $primary;
+$btn-bg2: $primary;
+$theme-arena: $primary;
+
+$active-theme-arena: $primary;
+$hover-theme-arena: $primary;
+
+$active-theme-default: $active-theme-arena !default;
+$hover-theme-default: $hover-theme-arena !default;
+
+$theme-list: (
+  'default': $theme-arena,
+  'arena': $theme-arena,
+);
+

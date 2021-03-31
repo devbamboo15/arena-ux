@@ -1,0 +1,20 @@
+::ng-deep {
+  aux-sidebar h6 {
+    width: 100%;
+    padding-left: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: .9375rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+  }
+  .nav-item {
+    background: transparent;
+    border: none;
+    color: var(--aux-text);
+    cursor: pointer;
+  }
+}
+i {
+  color: var(--aux-text);
+}

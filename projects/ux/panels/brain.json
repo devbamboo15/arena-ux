@@ -1,0 +1,557 @@
+{
+  "panels": {
+    "xs": {
+      "admin": {},
+      "navigation": {
+        "isHidden": false,
+        "isModeCollapsed": false,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "left": {
+        "defaultMode": "hidden",
+        "defaultState": "hidden",
+        "canCollapse": true,
+        "canExpand": false,
+        "canHide": true,
+        "ifCollapsed": "float",
+        "ifExpanded": "float",
+        "panelInteractions": {
+          "admin": {},
+          "navigation": "adjust",
+          "utility": "adjust",
+          "ifCollapsing": {
+            "right": {
+              "maxMode": "collapsed",
+              "maxState": "float"
+            }
+          },
+          "ifExpanding": {
+            "right": {
+              "maxMode": "collapsed",
+              "maxState": "float"
+            }
+          }
+        },
+        "isHidden": true,
+        "isModeCollapsed": false,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": false
+      },
+      "utility": {
+        "isHidden": true,
+        "isModeCollapsed": false,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "right": {
+        "defaultMode": "hidden",
+        "defaultState": "hidden",
+        "canCollapse": true,
+        "canExpand": false,
+        "canHide": true,
+        "ifCollapsed": "float",
+        "ifExpanded": "float",
+        "panelInteractions": {
+          "admin": {},
+          "navigation": "adjust",
+          "ifCollapsing": {
+            "left": {
+              "maxMode": "collapsed",
+              "maxState": "float"
+            }
+          },
+          "ifExpanding": {
+            "left": {
+              "maxMode": "collapsed",
+              "maxState": "float"
+            }
+          },
+          "utility": "adjust"
+        },
+        "isHidden": true,
+        "isModeCollapsed": false,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": false
+      }
+    },
+    "vs": {
+      "admin": {},
+      "navigation": {
+        "isHidden": false,
+        "isModeCollapsed": false,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "left": {
+        "defaultMode": "hidden",
+        "defaultState": "hidden",
+        "canCollapse": true,
+        "canExpand": false,
+        "canHide": true,
+        "ifCollapsed": "sticky",
+        "ifExpanded": "float",
+        "panelInteractions": {
+          "admin": {},
+          "navigation": "adjust",
+          "utility": "adjust",
+          "ifCollapsing": {
+            "right": {
+              "maxMode": "expanded",
+              "maxState": "sticky"
+            }
+          },
+          "ifExpanding": {
+            "right": {
+              "maxMode": "expanded",
+              "maxState": "float"
+            }
+          }
+        },
+        "isHidden": true,
+        "isModeCollapsed": false,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": false
+      },
+      "utility": {
+        "isHidden": true,
+        "isModeCollapsed": false,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "right": {
+        "defaultMode": "hidden",
+        "defaultState": "hidden",
+        "canCollapse": true,
+        "canExpand": false,
+        "canHide": true,
+        "ifCollapsed": "sticky",
+        "ifExpanded": "float",
+        "panelInteractions": {
+          "admin": {},
+          "navigation": "adjust",
+          "utility": "adjust",
+          "ifCollapsing": {
+            "left": {
+              "maxMode": "expanded",
+              "maxState": "sticky"
+            }
+          },
+          "ifExpanding": {
+            "left": {
+              "maxMode": "expanded",
+              "maxState": "float"
+            }
+          }
+        },
+        "isHidden": true,
+        "isModeCollapsed": false,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": false
+      }
+    },
+    "sm": {
+      "admin": {},
+      "navigation": {
+        "isHidden": false,
+        "isModeCollapsed": false,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "left": {
+        "defaultMode": "collapsed",
+        "defaultState": "float",
+        "canCollapse": true,
+        "canExpand": true,
+        "canHide": true,
+        "ifCollapsed": "sticky",
+        "ifExpanded": "float",
+        "panelInteractions": {
+          "admin": {},
+          "navigation": "adjust",
+          "utility": "adjust",
+          "ifCollapsing": {
+            "right": {
+              "maxMode": "expanded",
+              "maxState": "sticky"
+            }
+          },
+          "ifExpanding": {
+            "right": {
+              "maxMode": "collapsed",
+              "maxState": "float"
+            }
+          }
+        },
+        "isHidden": false,
+        "isModeCollapsed": true,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "utility": {
+        "isHidden": true,
+        "isModeCollapsed": false,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "right": {
+        "defaultMode": "hidden",
+        "defaultState": "sticky",
+        "canCollapse": true,
+        "canExpand": true,
+        "canHide": true,
+        "ifCollapsed": "sticky",
+        "ifExpanded": "float",
+        "panelInteractions": {
+          "admin": {},
+          "navigation": "adjust",
+          "ifCollapsing": {
+            "left": {
+              "maxMode": "expanded",
+              "maxState": "sticky"
+            }
+          },
+          "ifExpanding": {
+            "left": {
+              "maxMode": "collapsed",
+              "maxState": "float"
+            }
+          },
+          "utility": "adjust"
+        },
+        "isHidden": false,
+        "isModeCollapsed": true,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      }
+    },
+    "md": {
+      "admin": {},
+      "navigation": {
+        "isHidden": false,
+        "isModeCollapsed": false,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "left": {
+        "defaultMode": "collapsed",
+        "defaultState": "sticky",
+        "canCollapse": true,
+        "canExpand": true,
+        "canHide": true,
+        "ifCollapsed": "sticky",
+        "ifExpanded": "float",
+        "panelInteractions": {
+          "admin": {},
+          "navigation": "adjust",
+          "utility": "adjust",
+          "ifCollapsing": {
+            "right": {
+              "maxMode": "expanded",
+              "maxState": "sticky"
+            }
+          },
+          "ifExpanding": {
+            "right": {
+              "maxMode": "collapsed",
+              "maxState": "sticky"
+            }
+          }
+        },
+        "isHidden": false,
+        "isModeCollapsed": true,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "utility": {
+        "isHidden": true,
+        "isModeCollapsed": false,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "right": {
+        "defaultMode": "hidden",
+        "defaultState": "sticky",
+        "canCollapse": true,
+        "canExpand": true,
+        "canHide": true,
+        "ifCollapsed": "sticky",
+        "ifExpanded": "float",
+        "panelInteractions": {
+          "admin": {},
+          "navigation": "adjust",
+          "ifCollapsing": {
+            "left": {
+              "maxMode": "expanded",
+              "maxState": "sticky"
+            }
+          },
+          "ifExpanding": {
+            "left": {
+              "maxMode": "collapsed",
+              "maxState": "sticky"
+            }
+          },
+          "utility": "adjust"
+        },
+        "isHidden": false,
+        "isModeCollapsed": true,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      }
+    },
+    "lg": {
+      "admin": {},
+      "navigation": {
+        "isHidden": false,
+        "isModeCollapsed": false,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "left": {
+        "defaultMode": "expanded",
+        "defaultState": "sticky",
+        "canCollapse": true,
+        "canExpand": true,
+        "canHide": true,
+        "ifCollapsed": "sticky",
+        "ifExpanded": "sticky",
+        "panelInteractions": {
+          "admin": {},
+          "navigation": "adjust",
+          "utility": "adjust",
+          "ifCollapsing": {
+            "right": {
+              "maxMode": "expanded",
+              "maxState": "sticky"
+            }
+          },
+          "ifExpanding": {
+            "right": {
+              "maxMode": "collapsed",
+              "maxState": "sticky"
+            }
+          }
+        },
+        "isHidden": false,
+        "isModeCollapsed": false,
+        "isModeExpanded": true,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "utility": {
+        "isHidden": true,
+        "isModeCollapsed": false,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "right": {
+        "defaultMode": "hidden",
+        "defaultState": "sticky",
+        "canCollapse": true,
+        "canExpand": true,
+        "canHide": true,
+        "ifCollapsed": "sticky",
+        "ifExpanded": "sticky",
+        "panelInteractions": {
+          "admin": {},
+          "navigation": "adjust",
+          "ifCollapsing": {
+            "left": {
+              "maxMode": "expanded",
+              "maxState": "sticky"
+            }
+          },
+          "ifExpanding": {
+            "left": {
+              "maxMode": "collapsed",
+              "maxState": "sticky"
+            }
+          },
+          "utility": "adjust"
+        },
+        "isHidden": false,
+        "isModeCollapsed": true,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      }
+    },
+    "vl": {
+      "admin": {},
+      "navigation": {
+        "isHidden": false,
+        "isModeCollapsed": false,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "left": {
+        "defaultMode": "expanded",
+        "defaultState": "sticky",
+        "canCollapse": true,
+        "canExpand": true,
+        "canHide": true,
+        "ifCollapsed": "sticky",
+        "ifExpanded": "sticky",
+        "panelInteractions": {
+          "admin": {},
+          "navigation": "adjust",
+          "utility": "adjust",
+          "ifCollapsing": {
+            "right": {
+              "maxMode": "expanded",
+              "maxState": "sticky"
+            }
+          },
+          "ifExpanding": {
+            "right": {
+              "maxMode": "expanded",
+              "maxState": "sticky"
+            }
+          }
+        },
+        "isHidden": false,
+        "isModeCollapsed": false,
+        "isModeExpanded": true,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "utility": {
+        "isHidden": true,
+        "isModeCollapsed": false,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "right": {
+        "defaultMode": "hidden",
+        "defaultState": "sticky",
+        "canCollapse": true,
+        "canExpand": true,
+        "canHide": true,
+        "ifCollapsed": "sticky",
+        "ifExpanded": "sticky",
+        "panelInteractions": {
+          "admin": {},
+          "navigation": "adjust",
+          "ifCollapsing": {
+            "left": {
+              "maxMode": "expanded",
+              "maxState": "sticky"
+            }
+          },
+          "ifExpanding": {
+            "left": {
+              "maxMode": "expanded",
+              "maxState": "sticky"
+            }
+          },
+          "utility": "adjust"
+        },
+        "isHidden": false,
+        "isModeCollapsed": false,
+        "isModeExpanded": true,
+        "isStateFloat": false,
+        "isStateSticky": true
+      }
+    },
+    "xl": {
+      "admin": {},
+      "navigation": {
+        "isHidden": false,
+        "isModeCollapsed": false,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "left": {
+        "defaultMode": "expanded",
+        "defaultState": "sticky",
+        "canCollapse": true,
+        "canExpand": true,
+        "canHide": true,
+        "ifCollapsed": "sticky",
+        "ifExpanded": "sticky",
+        "panelInteractions": {
+          "admin": {},
+          "navigation": "adjust",
+          "utility": "adjust",
+          "ifCollapsing": {
+            "right": {
+              "maxMode": "expanded",
+              "maxState": "sticky"
+            }
+          },
+          "ifExpanding": {
+            "right": {
+              "maxMode": "expanded",
+              "maxState": "sticky"
+            }
+          }
+        },
+        "isHidden": false,
+        "isModeCollapsed": false,
+        "isModeExpanded": true,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "utility": {
+        "isHidden": true,
+        "isModeCollapsed": false,
+        "isModeExpanded": false,
+        "isStateFloat": false,
+        "isStateSticky": true
+      },
+      "right": {
+        "defaultMode": "hidden",
+        "defaultState": "sticky",
+        "canCollapse": true,
+        "canExpand": true,
+        "canHide": true,
+        "ifCollapsed": "sticky",
+        "ifExpanded": "sticky",
+        "panelInteractions": {
+          "admin": {},
+          "navigation": "adjust",
+          "ifCollapsing": {
+            "left": {
+              "maxMode": "expanded",
+              "maxState": "sticky"
+            }
+          },
+          "ifExpanding": {
+            "left": {
+              "maxMode": "expanded",
+              "maxState": "sticky"
+            }
+          },
+          "utility": "adjust"
+        },
+        "isHidden": false,
+        "isModeCollapsed": false,
+        "isModeExpanded": true,
+        "isStateFloat": false,
+        "isStateSticky": true
+      }
+    }
+  }
+}

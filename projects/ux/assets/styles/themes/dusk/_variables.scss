@@ -1,0 +1,20 @@
+@import "../variables";
+@import "../ux-variables";
+
+$bg-soft-level: 10;
+$badge-soft-bg-level: 10;
+
+$body-bg: $black;
+$body-color: $white;
+
+$custom-control-indicator-checked-bg: $primary;
+$custom-control-indicator-checked-box-shadow: $primary;
+$custom-control-indicator-checked-border-color: $primary;
+
+$dropdown-bg: $gray-800-dark;
+$dropdown-link-hover-bg: $gray-700;
+$dropdown-link-hover-color: $white;
+$dropdown-border-radius: 0;
+$dropdown-color: $white;
+$dropdown-link-color: $white;
+$dropdown-divider-bg: $gray-700;

@@ -1,0 +1,110 @@
+aux-supplemental-panel {
+  .supplemental-panel-backdrop {
+    position: absolute;
+    z-index: 99;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    animation: backdropIn .3s;
+    background: rgba(0, 0, 0, .3);
+    cursor: pointer;
+  }
+
+  .supplemental-panel {
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    right: auto;
+    background: #212121;
+    box-shadow: 0 0.5rem 1rem 0 #000;
+    transition: all .3s;
+
+    .supplemental-panel-header {
+      width: 100%;
+      height: 70px;
+      border-bottom: 1px solid #131929;
+      display: table;
+      font-weight: 400;
+      font-size: 21px;
+      line-height: 21px;
+      margin: 0;
+      padding: 0 30px;
+
+      > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+  }
+
+}
+
+aux-supplemental-panel.left {
+  .supplemental-panel {
+    right: auto;
+    left: 0;
+    animation: leftIn 0.5s;
+  }
+}
+
+aux-supplemental-panel.right {
+  .supplemental-panel {
+    left: auto;
+    right: 0;
+    animation: rightIn 0.5s;
+  }
+}
+
+@keyframes rightIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rightOut {
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes leftIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes leftOut {
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes backdropIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes backdropOut {
+  to {
+    opacity: 0;
+  }
+}

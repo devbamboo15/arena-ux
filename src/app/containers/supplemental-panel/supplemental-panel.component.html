@@ -1,0 +1,88 @@
+<div class="header">
+  <div class="header-body">
+    <h1 class="header-title">
+      Supplemental Panel
+    </h1>
+    <p class="header-subtitle">
+      Supplemental Panel slide in content container.
+    </p>
+  </div>
+</div>
+<div class="mb-3">
+  <div class="mb-4">
+    <h2 class="mb-2">Installation</h2>
+    <p class="text-muted mb-2">
+      Import supplemental panel into you module and Import `SupplementalPanelService` into your component and start
+      using it.
+    </p>
+    <div class="card">
+      <div class="card-footer">
+        <div>
+          <tabset>
+            <tab heading="module">
+              <pre><code [highlight]="code11" [languages]="['typescript']" [lineNumbers]="true"></code></pre>
+            </tab>
+            <tab heading="component">
+              <pre><code [highlight]="code12" [languages]="['typescript']" [lineNumbers]="true"></code></pre>
+            </tab>
+          </tabset>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Usage With Component Class (recommended)</h2>
+    <p class="text-muted mb-2">
+      Using supplemental panel panel with content from component.
+    </p>
+    <div class="card">
+      <div class="card-body">
+        <button class="btn btn-white" role="supplemental-toggle" (click)="showComponent()">Show Panel</button>
+      </div>
+      <div class="card-footer">
+        <div>
+          <tabset>
+            <tab heading="html">
+              <pre><code [highlight]="code21" [languages]="['html']" [lineNumbers]="true"></code></pre>
+            </tab>
+            <tab heading="component">
+              <pre><code [highlight]="code22" [languages]="['typescript']" [lineNumbers]="true"></code></pre>
+            </tab>
+          </tabset>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Usage With TemplateRef</h2>
+    <p class="text-muted mb-2">
+      Using supplemental panel panel with content from <code>TemplateRef</code>.
+    </p>
+    <div class="card">
+      <div class="card-body">
+        <button class="btn btn-white" role="supplemental-toggle" (click)="showTemplate(demoContentInner)">Show Panel
+        </button>
+      </div>
+      <div class="card-footer">
+        <div>
+          <tabset>
+            <tab heading="html">
+              <pre><code [highlight]="code31" [languages]="['html']" [lineNumbers]="true"></code></pre>
+            </tab>
+            <tab heading="component">
+              <pre><code [highlight]="code32" [languages]="['typescript']" [lineNumbers]="true"></code></pre>
+            </tab>
+          </tabset>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #demoContentInner>
+  <div class="p3">
+    <aux-brand product="panel"></aux-brand>
+
+    <button class="btn btn-sm btn-primary" (click)="hide()">Hide</button>
+  </div>
+</ng-template>

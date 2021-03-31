@@ -1,0 +1,189 @@
+.aux-profile-content-wrapper {
+  .edit-name-backdrop{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    animation: backdropIn .3s;
+    background: rgba(0, 0, 0, .3);
+  }
+  .aux-content {
+    .aux-profile-container{
+      height: 300px;
+      z-index: 5555;
+      box-shadow: 0 0.5rem 1rem 0 var(--background);
+      transition: all .3s;
+      position: fixed;
+      top: 200px;
+      width: 100%;
+      background: var(--background);
+      .content{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 90%;
+      }
+    }
+  }
+}
+.content-wrapper{
+  max-width:100%;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+
+  .profile-body {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    @media (max-width: 790px) {
+      flex-direction: column-reverse;
+    }
+
+    .profile-edit-btn {
+      width: 100px;
+      height: 34px;
+      padding: 0;
+
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
+    .profile-avatar{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 200px;
+
+      .mobileAvatar { margin-top: 20px; cursor: pointer;
+        .avatarImg { width: 250px; margin: 0 auto; height: 250px; position: relative;
+          img { border-radius: 50%; position: relative;left: 0; width: 250px; height: 250px;
+            @media (max-width: 767px) {
+              width: 120px;
+              height: 120px;
+              margin-left: 40px;
+            }  }
+        }
+
+        .inputfile {
+          height: 100%; opacity: 0; overflow: hidden; position: absolute; z-index: -1; }
+        .editAvatar {
+          position: absolute; top: 0; left: 0; width: 250px; height: 250px; background: var(--gray); opacity: 0.6; border-radius: 50%; display: flex; justify-content: center; align-items: center;
+          @media (max-width: 767px) {
+            width: 120px;
+            height: 120px;
+            margin-left: 40px;
+          }
+
+          i { font-size: 2rem; color:var(--text); }
+        }
+      }
+    }
+    .profile-content {
+      max-width: 500px;
+
+      .profile-name {
+        color: var(--primary);
+        display: flex;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        font-weight: 700;
+
+        @media (max-width: 767px) {
+          text-align: center;
+        }
+
+        & i {
+          cursor: pointer;
+        }
+      }
+
+      .profile-title {
+        font-weight: 700;
+        padding: 1rem 0;
+        font-size: 1rem;
+      }
+
+      .profile-type {
+        color: var(--primary);
+      }
+
+      .payment-section{
+        display: flex;
+        justify-content: space-between;
+
+        .profile-edit-btn{
+          position: relative;
+          top: 80px;
+          margin-left: 10px;
+        }
+
+        @media (max-width: 767px) {
+          overflow: auto;
+        }
+
+      }
+
+      .table{
+        overflow: auto;
+        color: var(--text);
+        @media (max-width: 767px) {
+          width: 250px;
+        }
+
+        thead{
+
+          th{
+            border-top: none;
+          }
+        }
+
+        tbody{
+          color: var(--aux-text-color) !important;
+          tr:nth-child(even) {
+            background-color: var(--light-gray);
+          }
+          tr:nth-child(odd) {
+            background-color: var(--gray);
+          }
+          color: var(--dark-text);
+          tr:hover {
+            background: var(--primary);
+
+            td {
+              height: auto;
+            }
+          }
+        }
+
+        i {
+          font-size: 1.5rem
+        }
+      }
+
+      .address-section {
+        @media (max-width: 767px) {
+          width: 250px;
+        }
+
+        .address{
+
+          .address-type {
+            color: var(--primary);
+          }
+
+        }
+
+        .address-button {
+          width: 100px;
+          height: 34px;
+          padding: 0;
+        }
+      }
+    }
+  }
+}

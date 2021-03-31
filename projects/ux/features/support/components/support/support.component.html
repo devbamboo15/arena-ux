@@ -1,0 +1,8 @@
+<button class="btn btn-secondary-icon support-icon" role="supplemental-toggle"
+        (click)="showSupportPanel(supportDeskPanel)">
+  <i class="fad fa-question-circle"></i>
+</button>
+
+<ng-template #supportDeskPanel>
+  <aux-support-desk (showSupport)="showSupportEvent()"></aux-support-desk>
+</ng-template>

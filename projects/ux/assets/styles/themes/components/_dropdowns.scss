@@ -1,0 +1,33 @@
+.dropdown-ellipses {
+  font-size: $font-size-lg;
+  color: $gray-500;
+  border: none;
+  background-color: transparent;
+
+  @include hover-focus-active {
+    border: none;
+    outline: none;
+    text-decoration: none;
+  }
+}
+
+.dropdown-ellipses::after {
+  display: none;
+}
+
+.dropdown-menu-card {
+  min-width: $dropdown-card-min-width;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: $card-bg;
+  border-color: $dropdown-card-border-color;
+
+  .card-header {
+    min-height: $dropdown-card-header-min-height;
+  }
+
+  .card-body {
+    max-height: $dropdown-card-body-max-height;
+    overflow-y: auto;
+  }
+}

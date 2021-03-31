@@ -1,0 +1,134 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Notification Settings</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="settingsForm">
+    <div class="form-row">
+      <div class="col-12">
+        <h5>General:</h5>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <div class="form-group">
+          <label for="perPage">Per Page</label>
+          <input formControlName="perPage" [class.is-invalid]="settingsForm.controls.perPage.errors" type="number"
+                 class="form-control" id="perPage">
+          <small *ngIf="settingsForm.controls.perPage.errors" class="invalid-feedback">Per Page field is
+            required.</small>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="showTime">Show Time (in seconds)</label>
+          <input formControlName="showTime" [class.is-invalid]="settingsForm.controls.showTime.errors" type="number"
+                 class="form-control" id="showTime">
+          <small *ngIf="settingsForm.controls.showTime.errors" class="invalid-feedback">Show Time field is
+            required.</small>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <div class="form-group">
+          <div class="custom-control custom-switch">
+            <input formControlName="playSound" type="checkbox" class="custom-control-input" id="playSound">
+            <label class="custom-control-label" for="playSound">Play Sound</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-12">
+        <h5>Show notifications for:</h5>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-inline col-6">
+        <div class="form-group">
+          <div class="custom-control custom-switch">
+            <input formControlName="flagApparel" type="checkbox" class="custom-control-input" id="flagApparel">
+            <label class="custom-control-label" for="flagApparel">Apparel</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-inline col-6">
+        <div class="form-group">
+          <div class="custom-control custom-switch">
+            <input formControlName="flagMerchandising" type="checkbox" class="custom-control-input" id="flagMerchandising">
+            <label class="custom-control-label" for="flagMerchandising">Arena Merchandising</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-inline col-6">
+        <div class="form-group">
+          <div class="custom-control custom-switch">
+            <input formControlName="flagArena" type="checkbox" class="custom-control-input" id="flagArena">
+            <label class="custom-control-label" for="flagArena">Arena</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-inline col-6">
+        <div class="form-group">
+          <div class="custom-control custom-switch">
+            <input formControlName="flagMusic" type="checkbox" class="custom-control-input" id="flagMusic">
+            <label class="custom-control-label" for="flagMusic">Arena Music</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-inline col-6">
+        <div class="form-group">
+          <div class="custom-control custom-switch">
+            <input formControlName="flagCatalog" type="checkbox" class="custom-control-input" id="flagCatalog">
+            <label class="custom-control-label" for="flagCatalog">Catalog</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-inline col-6">
+        <div class="form-group">
+          <div class="custom-control custom-switch">
+            <input formControlName="flagOffice" type="checkbox" class="custom-control-input" id="flagOffice">
+            <label class="custom-control-label" for="flagOffice">Arena Office</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-inline col-6">
+        <div class="form-group">
+          <div class="custom-control custom-switch">
+            <input formControlName="flagUX" type="checkbox" class="custom-control-input" id="flagUX">
+            <label class="custom-control-label" for="flagUX">UX</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-inline col-6">
+        <div class="form-group">
+          <div class="custom-control custom-switch">
+            <input formControlName="flagSoundBlock" type="checkbox" class="custom-control-input" id="flagSoundBlock">
+            <label class="custom-control-label" for="flagSoundBlock">Soundblock</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row mt-5">
+      <div class="col-12">
+        <h5>Show notifications on:</h5>
+      </div>
+    </div>
+    <div class="form-row">
+      <aux-notification-place-selector formControlName="position"></aux-notification-place-selector>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button (click)="close()" class="btn btn-light">
+    Close
+  </button>
+  <button (click)="save(settingsForm.value, settingsForm.valid)"
+          [disabled]="isUpdatingNotificationsSettings$ | async"
+          class="btn btn-primary">
+    Save
+  </button>
+</div>

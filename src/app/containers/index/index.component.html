@@ -1,0 +1,29 @@
+<aux-navigation-panel>
+  <ng-container start>
+    <aux-brand routerLink="/" project="ux"></aux-brand>
+  </ng-container>
+  <ng-container end>
+    <aux-support></aux-support>
+    <aux-notifications></aux-notifications>
+    <aux-user signInURL="/sign-in" [items]="userItems"></aux-user>
+  </ng-container>
+</aux-navigation-panel>
+
+<aux-sidebar context="left">
+  <h6>Setup</h6>
+  <aux-nav [items]="sortNavs(setupMenuItems)"></aux-nav>
+  <h6>Layout</h6>
+  <aux-nav [items]="sortNavs(layoutMenuItems)"></aux-nav>
+  <h6>Features</h6>
+  <aux-nav [items]="sortNavs(featuresMenuItems)"></aux-nav>
+  <h6>Components</h6>
+  <aux-nav [items]="sortNavs(componentMenuItems)"></aux-nav>
+</aux-sidebar>
+<aux-sidebar context="right">
+  <aux-nav [items]="sideItems"></aux-nav>
+</aux-sidebar>
+
+<aux-content>
+  <aux-breadcrumbs></aux-breadcrumbs>
+  <router-outlet></router-outlet>
+</aux-content>

@@ -1,0 +1,114 @@
+<div class="header">
+  <div class="header-body">
+    <h1 class="header-title">
+      Tables
+    </h1>
+    <p class="header-subtitle">
+      Please read the <a target="_blank" href="https://getbootstrap.com/docs/4.5/content/tables/">official Bootstrap
+      documentation</a> and <a target="_blank" href="https://swimlane.gitbook.io/ngx-datatable/">official ngx-datatable
+      documentation</a> for a full list of options. </p>
+  </div>
+</div>
+<div class="mb-3">
+  <div class="mb-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Installation</h2>
+    <p class="text-muted mb-2">
+
+    </p>
+    <div class="card">
+      <div class="card-footer">
+        <pre><code [highlight]="code0" [languages]="['typescript']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Custom ngx-datatable</h2>
+    <p class="text-muted"><code>aux-table</code> is <code>ngx-datatable</code> wrapper allowing more unified form
+      of displaying data from arena API. It unifies API's <code>Meta</code> and <code>Request</code> objects. It uses
+      same API as <code>ngx-datatable</code> so refer to <a target="_blank"
+                                                            href="https://swimlane.gitbook.io/ngx-datatable/">official
+        ngx-datatable
+        documentation</a>.</p>
+    <p class="text-muted">
+      <span class="text-danger">IMPORTANT</span> Only <a
+      href="https://github.com/swimlane/ngx-datatable/blob/master/src/app/templates/template-obj.component.ts"
+      target="_blank">TemplateRef column templating</a> is supported
+      (to keep code clean).
+    </p>
+    <p class="text-muted mb-2">
+      Wrapped <code>ngx-datatable</code> supports all bootstrap styling classes like <code>.table-sm</code>
+      or <code>.table-hover</code> so refer to official
+      documentation for that.
+    </p>
+    <div class="card">
+      <div class="card-body">
+        <aux-table
+          class="table-hover table-sm"
+          [rows]="rows"
+          [meta]="meta"
+          [columns]="columns"
+          [isLoading]="isLoading"
+          [request]="request"
+          (requested)="getUsers($event)">
+        </aux-table>
+      </div>
+      <div class="card-footer">
+        <div>
+          <tabset>
+            <tab heading="template">
+              <pre><code [highlight]="code11" [languages]="['html']" [lineNumbers]="true"></code></pre>
+            </tab>
+            <tab heading="component">
+              <pre><code [highlight]="code12" [languages]="['typescript']" [lineNumbers]="true"></code></pre>
+            </tab>
+          </tabset>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template
+  let-value="value"
+  #createdAtTpl>
+  {{ value * 1000 | date: "mediumDate" }}
+</ng-template>

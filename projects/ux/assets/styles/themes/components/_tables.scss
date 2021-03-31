@@ -1,0 +1,154 @@
+.table, .ngx-datatable {
+
+  thead th, .datatable-header .datatable-header-cell {
+    background-color: $table-head-bg !important;
+    text-transform: uppercase;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-normal;
+    letter-spacing: .08em;
+    padding: $table-cell-padding;
+    color: $table-head-color;
+    border-bottom: none !important;
+    border-color: $table-border-color;
+    border-top-width: $table-border-width;
+    border-bottom-width: $table-border-width;
+  }
+
+  .datatable-body-row {
+    border-top: $table-border-width solid $table-border-color !important;
+  }
+
+  thead th, tbody th, tbody td, .datatable-body-row .datatable-body-cell {
+    vertical-align: middle;
+    color: $table-color;
+    border-color: $table-border-color;
+    border-width: $table-border-width;
+    padding: $table-cell-padding;
+  }
+}
+
+.table-hover {
+  tbody tr, .datatable-body-row {
+    cursor: pointer;
+  }
+
+  tbody tr:hover, .datatable-body-row:hover {
+    background-color: $table-hover-bg !important;
+  }
+}
+
+.table-sm {
+  font-size: $font-size-sm;
+
+  thead th, .datatable-header .datatable-header-cell {
+    font-size: $font-size-xs;
+  }
+}
+
+.table-nowrap {
+
+  th, td {
+    white-space: nowrap;
+  }
+}
+
+
+.table [data-sort] {
+  white-space: nowrap;
+
+  &::after {
+    //content: str-replace(url("data:image/svg+xml;utf8,<svg width='6' height='10' viewBox='0 0 6 10' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M3 0L6 4H0L3 0ZM3 10L0 6H6L3 10Z' fill='#{$text-muted}'/></svg>"), "#", "%23");
+    margin-left: .25rem;
+  }
+}
+
+.table-checkbox {
+  min-height: 0;
+}
+
+.table-checkbox .custom-control-label::before,
+.table-checkbox .custom-control-label::after {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.table a[class*="text-reset"]:hover {
+  color: $link-color !important;
+}
+
+.datatable-footer {
+  background-color: $table-head-bg !important;
+}
+
+.ngx-datatable.bootstrap .datatable-body .progress-linear {
+  display: block;
+  width: 100%;
+  height: 5px;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+}
+
+.ngx-datatable.bootstrap .datatable-body .progress-linear .container {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 5px;
+  transform: translate(0, 0) scale(1, 1);
+  background-color: #171A21;
+}
+
+.ngx-datatable.bootstrap .datatable-body .progress-linear .container .bar {
+  transition: all .2s linear;
+  animation: query 0.8s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: -webkit-transform .2s linear;
+  transition: transform .2s linear;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #f74264;
+}
+
+.datatable-pager {
+  .pager {
+    li {
+      a {
+        border: 1px solid transparent !important;
+      }
+    }
+
+    li:not(.disabled):hover {
+      a {
+        background-color: #FFFFFF !important;
+        color: $table-head-bg !important;
+        border: 1px solid $table-border-color !important;
+      }
+    }
+
+    .pages.active {
+      a {
+        background-color: transparent !important;
+        border: 1px solid $table-border-color !important;
+        color: var(--aux-primary);
+      }
+    }
+  }
+}
+
+/**
+ * Progress bar animations
+ */
+@keyframes query {
+  0% {
+    opacity: 1;
+    transform: translateX(35%) scale(0.3, 1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0, 1);
+  }
+}

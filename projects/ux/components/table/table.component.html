@@ -1,0 +1,57 @@
+<div *ngIf="showSearchToolbar" class="row">
+  <div class="col-12">
+    <div class="input-group input-group-merge mb-3">
+      <input (keyup)="search($event)"
+             [(ngModel)]="searchText"
+             type="text" class="form-control form-control-prepended" placeholder="Search...">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <i class="fas fa-search"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <ngx-datatable class="bootstrap {{class}}"
+                   [cssClasses]="customIcons"
+                   [selectionType]="selectionType"
+                   [selectAllRowsOnPage]="false"
+                   [columnMode]="'force'"
+                   [headerHeight]="40"
+                   [footerHeight]="50"
+                   [rows]="rows"
+                   [columns]="columns"
+                   [limit]="meta?.perPage"
+                   [count]="meta?.count"
+                   [loadingIndicator]="isLoading"
+                   [externalPaging]="true"
+                   [externalSorting]="true"
+                   [offset]="meta?.currentPage - 1"
+                   [selected]="selectedRows"
+                   rowHeight="auto"
+                   (page)="paginate($event)"
+                   (sort)="sort($event)"
+                   (activate)="click($event)">
+    </ngx-datatable>
+  </div>
+</div>
+
+<!--<div *ngIf="showSearchToolbar" class="input-group">-->
+<!--    <i class="fas fa-search"></i>-->
+<!--    <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2" (keyup)="filterData()" [(ngModel)]="searchValue">-->
+<!--    <div class="input-group-append">-->
+<!--        <h6 class="text-primary d-flex align-items-center mb-0 mx-2">{{meta.limit}}</h6>-->
+<!--        <div class="btn-group" dropdown>-->
+<!--            <button id="button-basic" dropdownToggle type="button" class="btn btn-sm btn-primary dropdown-toggle p-0 pr-2" aria-controls="dropdown-basic">-->
+<!--        Per Page <span class="caret"></span>-->
+<!--      </button>-->
+<!--            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right" aria-labelledby="button-basic">-->
+<!--                <li *ngFor="let rowsCount of rowsCountOptions" class="dropdown-item" [class.active]="rowsCount === meta.limit" (click)="onRowsCountChange($event)">-->
+<!--                    {{rowsCount}}-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->

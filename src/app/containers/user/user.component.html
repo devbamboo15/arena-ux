@@ -1,0 +1,87 @@
+<div class="header">
+  <div class="header-body">
+    <h1 class="header-title">
+      User
+    </h1>
+    <p class="header-subtitle">
+      User feature is sign in, sign up and user form component.
+    </p>
+  </div>
+</div>
+<div class="mb-3">
+  <div class="mb-4">
+    <h2 class="mb-2">Installation</h2>
+    <p class="text-muted mb-2">
+      Import `UserModule` into you module (`SoreModule` must be installed)
+    </p>
+    <div class="card">
+      <div class="card-footer">
+        <pre><code [highlight]="code1" [languages]="['typescript']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">User Icon</h2>
+    <p class="text-muted mb-2">
+      First thing you want to do is probably to display user icon with user menu.
+    </p>
+    <div class="card">
+      <div class="card-body">
+        <aux-user></aux-user>
+      </div>
+      <div class="card-footer">
+        <tabset>
+          <tab heading="template">
+            <pre><code [highlight]="code21" [languages]="['html']" [lineNumbers]="true"></code></pre>
+          </tab>
+          <tab heading="component">
+            <pre><code [highlight]="code22" [languages]="['typescript']" [lineNumbers]="true"></code></pre>
+          </tab>
+        </tabset>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Manage User Form</h2>
+    <p class="text-muted mb-2">
+      To enable user management form, add routing to it.
+    </p>
+    <div class="card">
+      <div class="card-body">
+        <a routerLink="/profile" class="btn btn-primary">View Profile</a>
+      </div>
+      <div class="card-footer">
+        <pre><code [highlight]="code3" [languages]="['typescript']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Sign In Form</h2>
+    <p class="text-muted mb-2">
+      User feature sign in form fully handles authorization process.
+    </p>
+    <div class="card">
+      <div class="card-body">
+        <aux-sign-in></aux-sign-in>
+      </div>
+      <div class="card-footer">
+        <pre><code [highlight]="code4" [languages]="['html']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Sign Up Form</h2>
+    <p class="text-muted mb-2">
+      User feature sign up form fully handles registration process.
+    </p>
+    <div class="card">
+      <div class="card-body">
+        <aux-sign-up></aux-sign-up>
+      </div>
+      <div class="card-footer">
+        <pre><code [highlight]="code5" [languages]="['html']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+

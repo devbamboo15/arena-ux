@@ -1,0 +1,12 @@
+::ng-deep {
+  aux-utility-panel {
+    position: fixed;
+    height: 78px;
+    bottom: 0;
+    width: 100%;
+    z-index: 9;
+    transition: all .3s;
+    background-color: #1b212e;
+    border-top: 1px solid #666;
+  }
+}

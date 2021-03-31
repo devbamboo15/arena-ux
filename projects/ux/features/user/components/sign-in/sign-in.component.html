@@ -1,0 +1,46 @@
+<form *ngIf="!isForgetPassword" [formGroup]="form" (submit)="submit()">
+  <div class="form-group">
+    <label for="user">Email or Username</label>
+    <input formControlName="user" type="text" class="form-control" placeholder="user@example.com"
+           [class.is-invalid]="form.controls['user'].errors && submitted" id="user">
+    <div class="invalid-feedback">
+      Please provide valid Email or Username.
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="w-100" for="password">
+      Password
+      <a class="float-right text-sm text-muted" (click)="isForgetPasswordToggle()">
+        <small>Forgot Password?</small>
+      </a>
+    </label>
+    <input formControlName="password" type="password" placeholder="************"
+           [class.is-invalid]="form.controls['password'].errors && submitted" class="form-control" id="password">
+    <div class="invalid-feedback">
+      Password is required.
+    </div>
+  </div>
+  <button type="submit" [disabled]="(!form.valid && submitted) || (isAuthorizing$ | async)"
+          class="btn btn-block btn-primary">
+    <i *ngIf="isAuthorizing$ | async" class="fas fa-circle-notch fa-spin"></i> Sign in
+  </button>
+  <div *ngIf="authorizationError$ | async as error" class="alert alert-danger mt-3" role="alert">
+    {{error?.error?.status?.message}}
+  </div>
+</form>
+
+<form *ngIf="isForgetPassword" [formGroup]="forgetPasswordForm" (submit)="forgetPassword()">
+  <h5 class="btn-link btn-back mb-3" (click)="isForgetPasswordToggle()"><i class="far fa-backspace mr-2"></i>Back</h5>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input [class.is-invalid]="forgetPasswordForm.controls['email'].errors && submitted" formControlName="email"
+           type="email" class="form-control" placeholder="user@example.com" id="email" required>
+    <div class="invalid-feedback">
+      Please provide valid Email.
+    </div>
+  </div>
+  <button [disabled]="(!form.valid && submitted) || (isAuthorizing$ | async)" type="submit"
+          class="btn btn-block btn-primary">
+    <i *ngIf="isAuthorizing$ | async" class="fas fa-circle-notch fa-spin"></i> send email
+  </button>
+</form>

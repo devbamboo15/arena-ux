@@ -1,0 +1,56 @@
+<div class="sidebar">
+  <div class="sidebar-top">
+    <div class="controls p-3">
+      <div class="controls-user"></div>
+      <div class="controls-btn">
+        <button *ngIf="viewportBrain.canHide" class="btn btn-link btn-hide" tooltip="Hide"
+                container="aux-app" placement="bottom" (click)="setState('hidden')">
+          <i class="fad fa-eye-slash"></i>
+        </button>
+        <button *ngIf="viewportBrain.canCollapse" class="btn btn-link btn-compress" tooltip="Collapse"
+                container="aux-app" placement="bottom" (click)="setState('collapsed')">
+          <i class="fad fa-compress-arrows-alt"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="sidebar-center">
+    <div>
+      <ul class="nav">
+        <li class="nav-item btn-expand">
+          <a class="nav-link"
+             tooltip="Expand" [placement]="context === 'left' ? 'right' : 'left'"
+             container="aux-app"
+             [adaptivePosition]="false"
+             *ngIf="viewportBrain.canExpand"
+             (click)="setState('expanded')">
+            <i class="fad fa-expand-arrows-alt"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <ng-container *ngIf="context === 'left'">
+        <div class="d-block d-md-none">
+          <aux-nav [items]="panelsService.items"></aux-nav>
+        </div>
+        <div class="d-block d-lg-none">
+          <aux-nav [items]="panelsService.externalItems"></aux-nav>
+        </div>
+      </ng-container>
+      <div class="inner-sidebar">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+  <div class="sidebar-footer">
+    <div class="controls">
+      <div>
+        <button *ngIf="viewportBrain.canHide" class="btn btn-link btn-hide" tooltip="Hide"
+                [placement]="context === 'left' ? 'right' : 'left'" container="aux-app" (click)="setState('hidden')">
+          <i class="fad fa-eye-slash"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

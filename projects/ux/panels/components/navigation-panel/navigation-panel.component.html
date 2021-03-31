@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-md navbar-arena">
+  <div class="navbar-start">
+    <div class="menu-panel-toggle"
+         *ngIf="leftSidebarEnabled && leftSidebarState == 'hidden'">
+      <button class="btn p-0 btn-menu-panel-toggle" role="toggle" (click)="resetLeftPanelState()" type="button">
+        <i class="fal fa-fw fa-bars" role="toggle"></i>
+      </button>
+    </div>
+    <ng-content select="[start]"></ng-content>
+  </div>
+  <div class="navbar-center">
+    <ul class="navbar-nav d-none d-md-flex">
+      <ng-container *ngFor="let item of items">
+        <li *ngIf="!item.children || item.children?.length == 0" class="nav-item" routerLinkActive="active">
+          <a *ngIf="!item.path.includes('http')" class="nav-link" [target]="item.target" [routerLink]="item.path"><i
+            *ngIf="item.iconClass" [class]="item.iconClass"></i>{{item.label}}</a>
+          <a *ngIf="item.path.includes('http')" class="nav-link" [href]="item.path" [target]="item.target"><i
+            *ngIf="item.iconClass" [class]="item.iconClass"></i>{{item.label}}</a>
+        </li>
+        <li *ngIf="item.children?.length > 0" class="nav-item dropdown" dropdown routerLinkActive="active"
+            placement="bottom left">
+          <a class="nav-link dropdown-toggle" dropdownToggle role="button" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false">
+            <i *ngIf="item.iconClass" [class]="item.iconClass"></i> {{item.label}} <i class=" ml-1 fal fa-caret-down"></i>
+          </a>
+          <div class="dropdown-menu navigation-dropdown dropdown-menu-left" *dropdownMenu>
+            <ng-container *ngFor="let child of item.children">
+              <a *ngIf="!child.path.includes('http')" class="dropdown-item" [target]="child.target"
+                 [routerLink]="child.path">{{child.label}}</a>
+              <a *ngIf="child.path.includes('http')" class="dropdown-item" [target]="child.target"
+                 [href]="child.path">{{child.label}}</a>
+            </ng-container>
+          </div>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+  <div class="navbar-end">
+    <ul class="navbar-nav nav-external d-none d-lg-flex" *ngIf="haveExternalLinks">
+      <ng-container *ngFor="let item of panelsService.externalItems">
+        <li *ngIf="!item.children || item.children?.length == 0" class="nav-item" routerLinkActive="active">
+          <a *ngIf="!item.path.includes('http')" class="nav-link" [target]="item.target" [routerLink]="item.path"><i
+            *ngIf="item.iconClass" [class]="item.iconClass"></i>{{item.label}}</a>
+          <a *ngIf="item.path.includes('http')" class="nav-link" [href]="item.path" [target]="item.target"><i
+            *ngIf="item.iconClass" [class]="item.iconClass"></i>{{item.label}}</a>
+        </li>
+        <li *ngIf="item.children?.length > 0" class="nav-item dropdown" dropdown routerLinkActive="active"
+            placement="bottom right">
+          <a class="nav-link dropdown-toggle" dropdownToggle role="button" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false">
+            <i *ngIf="item.iconClass" [class]="item.iconClass"></i> {{item.label}} <i class="fal fa-caret-down ml-1"></i>
+          </a>
+          <div class="dropdown-menu navigation-dropdown dropdown-menu-right" *dropdownMenu>
+            <ng-container *ngFor="let child of item.children">
+              <a *ngIf="!child.path.includes('http')" class="dropdown-item" [target]="child.target"
+                 [routerLink]="child.path"><i *ngIf="child.iconClass" [class]="child.iconClass"></i> {{child.label}}</a>
+              <a *ngIf="child.path.includes('http')" class="dropdown-item" [target]="child.target"
+                 [href]="child.path"><i *ngIf="child.iconClass" [class]="child.iconClass"></i> {{child.label}}</a>
+            </ng-container>
+          </div>
+        </li>
+      </ng-container>
+    </ul>
+    <ng-content select="[end]"></ng-content>
+    <div class="menu-panel-toggle mr-1"
+         *ngIf="rightSidebarEnabled && rightSidebarState == 'hidden'">
+      <button class="btn p-0 btn-menu-panel-toggle" role="toggle" (click)="resetRightPanelState()" type="button">
+        <i class="fal fa-fw fa-bars" role="toggle"></i>
+      </button>
+    </div>
+  </div>
+</nav>

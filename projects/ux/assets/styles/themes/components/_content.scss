@@ -1,0 +1,49 @@
+aux-content {
+  padding: 15px !important;
+}
+
+.left-expanded-sticky {
+  left: 270px;
+}
+
+.right-expanded-sticky {
+  right: 270px;
+}
+
+.left-collapsed-sticky {
+  left: 70px;
+}
+
+.right-collapsed-sticky {
+  right: 70px;
+}
+
+.left-default-collapsed {
+  left: 70px;
+}
+
+.right-default-collapsed {
+  right: 70px;
+}
+
+.left-default-hidden {
+  left: 0;
+}
+
+.right-default-hidden {
+  right: 0;
+}
+
+aux-content {
+  display: block;
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(100vh - 50px);
+  margin: 0 !important;
+  padding: 0;
+  overflow: auto;
+  transition: all .3s;
+}

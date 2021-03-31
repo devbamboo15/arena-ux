@@ -1,0 +1,57 @@
+<div class="header">
+  <div class="header-body">
+    <h1 class="header-title">
+      Notifications
+    </h1>
+    <p class="header-subtitle">
+      Notification feature to show user notifications and settings
+    </p>
+  </div>
+</div>
+<div class="mb-3">
+  <div class="mb-4">
+    <h2 class="mb-2">Installation</h2>
+    <p class="text-muted mb-2">
+      Import NotificationsModule into you module.
+    </p>
+    <div class="card">
+      <div class="card-footer">
+        <pre><code [highlight]="code1" [languages]="['typescript']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Notification Icon</h2>
+    <p class="text-muted mb-2">
+      First thing you want to do is probably to display notification icon.
+    </p>
+    <div class="card">
+      <div class="card-body">
+        <aux-notifications></aux-notifications>
+        <br/>
+        <button (click)="sendTestNotification()" class="btn btn-white">
+          Send test notification
+        </button>
+      </div>
+      <div class="card-footer">
+        <pre><code [highlight]="code2" [languages]="['html']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Notification Settings</h2>
+    <p class="text-muted mb-2">
+      By using NotificationsService you can call notification settings modal.
+    </p>
+    <div class="card">
+      <div class="card-body">
+        <button (click)="showNotificationSettings()" class="btn btn-white">
+          Show notification settings
+        </button>
+      </div>
+      <div class="card-footer">
+        <pre><code [highlight]="code3" [languages]="['typescript']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+</div>

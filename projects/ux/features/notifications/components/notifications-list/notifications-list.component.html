@@ -1,0 +1,73 @@
+<div class="list-group list-group-flush list-group-activity my-3"
+     infiniteScroll
+     [infiniteScrollDistance]="1"
+     [infiniteScrollThrottle]="50"
+     [scrollWindow]="false"
+     (scrolled)="paginating()">
+  <ng-container *ngFor="let n of notifications">
+    <div class="list-group-item">
+      <div class="row">
+        <div class="col-auto">
+          <div class="avatar avatar-sm">
+            <div class="avatar-title font-size-lg bg-white-soft rounded-circle text-white">
+              <i class="far fa-sticky-note"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col ml-n2">
+          <h5 class="mb-1">
+            {{n.notificationName}}
+          </h5>
+          <p class="small text-gray-700 mb-0">
+            {{n.notificationMemo}}
+          </p>
+          <small class="text-muted">
+            {{ n.stampCreated * 1000 | timeago }}
+          </small>
+        </div>
+        <div class="col-auto">
+          <div class="btn-group" dropdown>
+            <button dropdownToggle type="button" class="dropdown-toggle dropdown-ellipses text-primary"
+                    aria-controls="dropdown-basic">
+              <i class="far fa-ellipsis-v"></i>
+            </button>
+            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right"
+                role="menu" aria-labelledby="button-basic">
+              <li *ngIf="n.notificationDetail.flagCanArchive" role="menuitem">
+                <a class="dropdown-item"
+                   (click)="archiveNotification(n.notificationUUID)">Archive</a>
+              </li>
+              <li *ngIf="n.notificationDetail.flagCanDelete" role="menuitem">
+                <a class="dropdown-item"
+                   (click)="deleteNotification(n.notificationUUID)">Delete</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <!--      <span class="mr-1">-->
+      <!--      <b class="small d-block"></b>-->
+      <!--      <span class="small"></span>-->
+      <!--      </span>-->
+      <!--      <div class="btn-group" dropdown placement="bottom right" [isAnimated]="true">-->
+      <!--        <button dropdownToggle class="btn btn-link btn-actions">-->
+      <!--          <i class="far fa-ellipsis-v"></i>-->
+      <!--        </button>-->
+      <!--        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right"-->
+      <!--            role="menu" aria-labelledby="button-basic">-->
+      <!--          <li *ngIf="n.notificationDetail.flagCanArchive" role="menuitem">-->
+      <!--            <a class="dropdown-item"-->
+      <!--               (click)="archiveNotification(n.notificationUUID)">Archive</a>-->
+      <!--          </li>-->
+      <!--          <li *ngIf="n.notificationDetail.flagCanDelete" role="menuitem">-->
+      <!--            <a class="dropdown-item"-->
+      <!--               (click)="deleteNotification(n.notificationUUID)">Delete</a>-->
+      <!--          </li>-->
+      <!--        </ul>-->
+      <!--      </div>-->
+    </div>
+  </ng-container>
+  <aux-notifications-spinner *ngIf="isLoading"></aux-notifications-spinner>
+</div>

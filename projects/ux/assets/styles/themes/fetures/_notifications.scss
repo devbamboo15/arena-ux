@@ -1,0 +1,144 @@
+aux-notifications {
+  .dropdown-menu.notifications-dropdown {
+    color: $notifications-dropdown-menu-color;
+    border-radius: 3px;
+    z-index: 999;
+    //background-color: $notifications-dropdown-menu-bg;
+    width: 350px;
+    max-height: 380px;
+    overflow-y: auto;
+    padding: 0;
+
+    > .dropdown-item {
+      color: $notifications-dropdown-menu-item-color;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 500;
+      border-left: 2px solid transparent;
+      border-right: 2px solid transparent;
+      transition: all .2s;
+
+      @include hover-focus-active {
+        border-color: $notifications-dropdown-menu-item-border-color-hover;
+        background-color: $notifications-dropdown-menu-item-bg-hover;
+      }
+    }
+  }
+
+  .notifications-icon {
+    position: relative;
+    border: none !important;
+    outline: none !important;
+    display: flex;
+
+    i {
+      font-size: 20px;
+    }
+  }
+
+  .notifications-icon-new {
+    i {
+      color: $primary !important;
+    }
+  }
+
+  .notifications-icon:hover {
+    border: none !important;
+    outline: none !important;
+  }
+}
+
+aux-notification-panel {
+  .card-header {
+    display: flex;
+
+    * {
+      text-transform: uppercase;
+    }
+
+    h5 {
+      font-size: 15px;
+      color: var(--aux-text);
+      line-height: 24px;
+    }
+
+    a {
+      cursor: pointer;
+    }
+  }
+
+  .card-header > :first-child {
+    flex: 1;
+  }
+
+  .card-body {
+    color: var(--aux-text);
+    overflow-y: auto;
+    height: calc(100% - 81px);
+    overflow-style: auto;
+  }
+
+  .notifications-statuses {
+    //display: flex;
+    //flex-direction: row;
+    a {
+      font-size: 12px;
+    }
+
+    .inactive {
+      // color: rgba(255, 255, 255, 0.3);
+      color: var(--gray);
+    }
+  }
+}
+
+aux-notifications-spinner {
+  .spinner-container {
+    .placeholder {
+      .placeholder-text-small {
+        height: 12px;
+        margin: 3px 0;
+      }
+    }
+
+    .spinner {
+      text-align: center;
+
+      .spinner-icon {
+        font-size: 24px;
+      }
+
+      .spinner-text {
+
+      }
+    }
+
+    i {
+      color: $primary;
+    }
+
+    @keyframes placeHolderShimmer {
+      0% {
+        background-position: -468px 0
+      }
+      100% {
+        background-position: 468px 0
+      }
+    }
+
+    .linear-background {
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      animation-name: placeHolderShimmer;
+      animation-timing-function: linear;
+      background: rgba(255, 255, 255, 0.3);
+      background: linear-gradient(to right, rgba(255, 255, 255, 0.3) 8%, rgba(255, 255, 255, 0.5) 18%, rgba(255, 255, 255, 0.3) 33%);
+      background-size: 1000px 104px;
+      height: 338px;
+      position: relative;
+      overflow: hidden;
+    }
+
+  }
+}

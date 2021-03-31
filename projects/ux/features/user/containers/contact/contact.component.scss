@@ -1,0 +1,34 @@
+.btn-inline {
+  margin-top: 41px;
+  @media (max-width: 767px) {
+    width: 100px !important;
+  }
+}
+
+.aux-profile-list-content {
+  @media (max-width: 350px) {
+    flex-direction: column;
+  }
+}
+
+.aux-profile-container {
+  margin-left: 0;
+}
+
+.aux-profile-list-content {
+  div {
+    @media (max-width: 767px) {
+      flex-direction: column !important;
+    }
+
+    span {
+      cursor: pointer;
+    }
+  }
+}
+
+.profile-input-group {
+  @media (max-width: 767px) {
+    flex-direction: column !important;
+  }
+}

@@ -1,0 +1,27 @@
+.badge {
+  vertical-align: middle;
+  font-weight: $badge-font-weight;
+}
+
+.btn .badge {
+  top: -2px;
+}
+
+@mixin badge-variant-soft($bg, $color) {
+  color: $color;
+  background-color: $bg;
+
+  &[href] {
+    @include hover-focus {
+      color: $color;
+      text-decoration: none;
+      background-color: darken($bg, 5%);
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .badge-soft-#{$color} {
+    @include badge-variant-soft(theme-color-level($color, $badge-soft-bg-level), $value);
+  }
+}

@@ -1,0 +1,179 @@
+//::ng-deep.aux-time-picker {
+//  td {
+//    .btn-default {
+//      color: var(--text);
+//    }
+//  }
+//}
+//
+//::ng-deep bs-daterangepicker-container {
+//  .bs-media-container {
+//    display: flex;
+//    justify-content: space-between;
+//    min-width: 600px;
+//    overflow: auto;
+//    align-items: center;
+//    background: var(--secondary-background);
+//
+//    @media screen and (max-width: 750px) {
+//      flex-direction: column;
+//      min-width: 0;
+//      overflow: auto;
+//      max-height: 350px;
+//    }
+//  }
+//
+//  td {
+//    .in-range {
+//      margin: 0;
+//      background: var(--gray);
+//      padding: 0;
+//      border-radius: 0rem;
+//      padding: 10px;
+//    }
+//  }
+//}
+//
+//::ng-deep.bs-datepicker {
+//  width: 19.25rem;
+//  font-size: 13px;
+//  background: var(--secondary-background);
+//  color: var(--text);
+//
+//  .current {
+//    background-color: var(--accent);
+//    border-color: var(--accent);
+//    color: var(--text);
+//    padding: .6875rem 1.125rem;
+//    border-style: solid;
+//    text-transform: uppercase;
+//    margin-right: 0;
+//    font-size: .875rem;
+//    line-height: 1rem;
+//  }
+//
+//  @media screen and (max-width: 300px) {
+//    width: 98%;
+//    margin-left: 0;
+//
+//    th {
+//      width: 1.625rem;
+//      padding-left: 0px;
+//    }
+//  }
+//
+//  bs-years-calendar-view {
+//    td {
+//      font-size: .9375rem;
+//      font-weight: 400;
+//      line-height: 1.25rem;
+//      width: 2.24rem;
+//      height: 2.625rem;
+//      border-radius: .25rem;
+//      padding: 10px;
+//      margin: 10px;
+//      cursor: pointer;
+//
+//      &:hover {
+//        background: var(--accent);
+//      }
+//    }
+//
+//    .bs-datepicker-body .years {
+//      margin: auto;
+//    }
+//
+//    .bs-datepicker-head {
+//      margin: auto
+//    }
+//  }
+//
+//  bs-month-calendar-view {
+//    td {
+//      font-size: .9375rem;
+//      font-weight: 400;
+//      line-height: 1.25rem;
+//      width: 2.24rem;
+//      height: 2.625rem;
+//      border-radius: .25rem;
+//      padding: 10px;
+//      margin: 10px;
+//      cursor: pointer;
+//
+//      &:hover {
+//        background: var(--accent);
+//      }
+//    }
+//
+//    .bs-datepicker-body .months {
+//      margin: auto;
+//    }
+//
+//    .bs-datepicker-head {
+//      margin: auto
+//    }
+//  }
+//
+//  th {
+//    background: var(--secondary);
+//    height: 2.625rem;
+//    width: 3.625rem;
+//    padding-left: 10px;
+//    font-size: .75rem;
+//    font-weight: 800;
+//    color: var(--border-color-2);
+//  }
+//
+//  .is-other-month {
+//    color: var(--gray);
+//
+//    &:hover {
+//      color: var(--text);
+//    }
+//  }
+//
+//  bs-days-calendar-view {
+//    td span {
+//      display: inline-block;
+//      font-size: .9375rem;
+//      font-weight: 400;
+//      line-height: 1.25rem;
+//      width: 2.24rem;
+//      height: 2.625rem;
+//      border-radius: .25rem;
+//      padding: 10px;
+//      cursor: pointer;
+//
+//      &:hover {
+//        background: var(--accent);
+//
+//        .is-other-month {
+//          color: var(--text);
+//        }
+//      }
+//    }
+//
+//    .selected {
+//      background: var(--accent);
+//    }
+//  }
+//
+//  .bs-datepicker-head {
+//    padding: 1rem 0;
+//    display: flex;
+//    align-items: center;
+//    justify-content: space-between;
+//  }
+//
+//  .previous, .next {
+//    background: transparent;
+//    color: var(--primary);
+//    border: none;
+//    margin-left: auto;
+//    margin-right: 0.4rem;
+//  }
+//
+//  bs-datepicker-navigation-view {
+//    margin: auto;
+//  }
+//}

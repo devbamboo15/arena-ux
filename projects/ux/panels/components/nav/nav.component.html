@@ -1,0 +1,105 @@
+<div>
+  <ul class="nav flex-column">
+    <ng-container *ngFor="let item of items; let i = index">
+      <li *ngIf="!item.children || item.children?.length == 0" class="nav-item" routerLinkActive="active">
+        <a [tooltip]="item.tooltip && sidebarState === 'collapsed' ? item.label : null"
+           placement="left" container="aux-app" containerClass="sidebarNavTooltip" (onShown)="onTooltip($event)"
+           *ngIf="!item.path.includes('http')" class="nav-link" routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact: true}" [target]="item.target"
+           [routerLink]="item.path">
+          <i [class]="item.iconClass ? item.iconClass : 'fal fa-circle'"></i>
+          <span>{{item.label}}</span></a>
+        <a [tooltip]="item.tooltip && sidebarState === 'collapsed' ? item.label : null"
+           placement="left" container="aux-app" containerClass="sidebarNavTooltip" (onShown)="onTooltip($event)"
+           *ngIf="item.path.includes('http')" class="nav-link" [href]="item.path"
+           [target]="item.target">
+          <i [class]="item.iconClass ? item.iconClass : 'fal fa-circle'"></i><span>{{item.label}}</span></a>
+      </li>
+      <li *ngIf="item.children?.length > 0 && subMode === 'dropdown'" class="nav-item dropdown" container="body"
+          dropdown
+          routerLinkActive="active"
+          placement="bottom left">
+        <a [tooltip]="item.tooltip && sidebarState === 'collapsed' ? item.label : null"
+           placement="left" container="aux-app" containerClass="sidebarNavTooltip" (onShown)="onTooltip($event)"
+           class="nav-link dropdown-toggle" dropdownToggle role="button"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i [class]="item.iconClass ? item.iconClass : 'fal fa-circle'"></i>
+          <span>{{item.label}}</span> <i class="fas fa-caret-right"></i>
+        </a>
+        <div [class.dropdown-nav-collapsed]="sidebarState == 'collapsed'"
+             class="dropdown-menu dropdown-menu-left dropdown-nav" *dropdownMenu>
+          <ul>
+            <ng-container *ngFor="let child of item.children">
+              <li><a *ngIf="!child.path.includes('http')" class="dropdown-item" [target]="child.target"
+                     [routerLink]="child.path" routerLinkActive="active"
+                     [routerLinkActiveOptions]="{exact: true}">
+                <i [class]="item.iconClass ? item.iconClass : 'fal fa-circle'"></i>{{child.label}}</a>
+                <a *ngIf="child.path.includes('http')" class="dropdown-item" [target]="child.target"
+                   [href]="child.path">
+                  <i [class]="item.iconClass ? item.iconClass : 'fal fa-circle'"></i>
+                  {{child.label}}</a>
+              </li>
+            </ng-container>
+          </ul>
+        </div>
+      </li>
+      <li *ngIf="item.children?.length > 0 && subMode === 'expand'" class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLinkActive="active"
+           [class.active]="collapsedNavItems[i]"
+           (click)="collapsedNavItems[i] = !collapsedNavItems[i]">
+          <i *ngIf="item.iconClass" [class]="item.iconClass"></i>
+          <i *ngIf="!item.iconClass" class="fal fa-circle"></i>
+          <span>{{item.label}}</span>
+          <span class="collapse-icon"><i [class.fa-rotate-180]="collapsedNavItems[i]"
+                                         class="fal fa-angle-down"></i></span></a>
+        <ul [collapse]="!collapsedNavItems[i]" [isAnimated]="true">
+          <li class="nav-item" routerLinkActive="active" *ngFor="let chLink of item.children">
+            <ng-container *ngIf="!chLink.path.includes('http')">
+              <a (click)="isCollapsed = false" class="nav-link" routerLinkActive="active"
+                 [routerLinkActiveOptions]="{exact: true}" [target]="chLink.target"
+                 [routerLink]="chLink.path">
+                <i *ngIf="chLink.iconClass" [class]="chLink.iconClass"></i>
+                <i *ngIf="!chLink.iconClass" class="fal fa-circle"></i>
+                <span>{{chLink.label}}</span></a>
+            </ng-container>
+            <ng-container *ngIf="chLink.path.includes('http')">
+              <a class="nav-link" [href]="chLink.path"
+                 [target]="chLink.target">
+                <i *ngIf="!chLink.iconClass" class="fal fa-circle"></i>
+                <i *ngIf="chLink.iconClass" [class]="chLink.iconClass"></i><span>{{chLink.label}}</span></a>
+            </ng-container>
+          </li>
+        </ul>
+      </li>
+      <li *ngIf="item.children?.length > 0 && subMode === 'flyout'" class="nav-item nav-flyout"
+          routerLinkActive="active">
+        <a [tooltip]="item.tooltip ? item.label : null" placement="auto" container="body"
+           class="nav-link" routerLinkActive="active"
+           [class.active]="flyoutNavItems[i]"
+           aria-haspopup="true" aria-expanded="false"
+           (click)="flyoutNavItems[i] = !flyoutNavItems[i]">
+          <i [class]="item.iconClass ? item.iconClass : 'fal fa-circle'"></i>
+          <span>{{item.label}}</span>
+          <span class="collapse-icon"><i class="fal fa-angle-down fa-rotate-270"></i></span></a>
+        <ul>
+          <li class="nav-item" routerLinkActive="active" *ngFor="let chLink of item.children">
+            <ng-container *ngIf="!chLink.path.includes('http')">
+              <a (click)="isCollapsed = false" class="nav-link" routerLinkActive="active"
+                 [routerLinkActiveOptions]="{exact: true}" [target]="chLink.target"
+                 [routerLink]="chLink.path">
+                <i *ngIf="chLink.iconClass" [class]="chLink.iconClass"></i>
+                <i *ngIf="!chLink.iconClass" class="fal fa-circle"></i>
+                <span>{{chLink.label}}</span></a>
+            </ng-container>
+            <ng-container *ngIf="chLink.path.includes('http')">
+              <a class="nav-link" [href]="chLink.path"
+                 [target]="chLink.target">
+                <i *ngIf="!chLink.iconClass" class="fal fa-circle"></i>
+                <i *ngIf="chLink.iconClass" [class]="chLink.iconClass"></i><span>{{chLink.label}}</span></a>
+            </ng-container>
+          </li>
+        </ul>
+      </li>
+    </ng-container>
+  </ul>
+</div>

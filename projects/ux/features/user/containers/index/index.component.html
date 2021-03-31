@@ -1,0 +1,113 @@
+<div class="content-wrapper" *ngIf="profile$ | async as profile">
+  <div class="profile-body">
+    <div class="profile-content">
+      <div class="profile-name mb-3">
+        <span class="pr-3">{{profile.name}}</span>
+        <i class="fal fa-edit" (click)="editNameShow()"></i>
+      </div>
+      <div class="address-section mb-3">
+        <p class=" bold text-primary profile-title">Address</p>
+        <p class="mb-3 address " *ngFor="let postal of profile.postals">
+          <span class="profile-type">{{postal.postalType}}:</span>
+          <span class=" pl-2">
+                       {{postal.postalStreet}},
+            {{postal.postalCity}},
+            {{postal.postalCountry}}, {{postal.postalZipcode}}
+                    </span>
+        </p>
+        <div>
+          <button class="address-button bt btn-primary" routerLink="./address"><i class="fal fa-edit"></i>
+            Edit
+          </button>
+        </div>
+      </div>
+      <hr>
+      <div class="contact-section">
+        <p class="mb-3 bold text-primary profile-title">Contact</p>
+        <div class="mb-3 " *ngFor="let phone of profile.phones">
+          <span class="profile-type pr-2">{{phone.phoneType}}</span> <span>{{phone.phoneNumber}}</span>
+        </div>
+        <div class="mb-3" *ngFor="let email of profile.emails">
+          <span class=" pr-2">{{email.userAuthEmail}}</span>
+        </div>
+        <div>
+          <button class="profile-edit-btn btn btn-primary" routerLink="./contact"><i class="fal fa-edit"></i>
+            Edit
+          </button>
+        </div>
+
+      </div>
+      <hr>
+      <p class="mb-3 bold text-primary profile-title">Payment</p>
+
+      <div class="payment-section">
+        <table class="table table-hover table-striped">
+          <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Bank Name</th>
+            <th scope="col">Account Type</th>
+            <th scope="col">Bank Account</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let bank of profile.bankings">
+            <td><i class="far fa-money-check-alt"></i></td>
+            <td> {{bank.bankName}}</td>
+            <td>{{bank.accountType}}</td>
+            <td>{{bank.accountNumber | accountNumber}}</td>
+          </tr>
+          <tr *ngFor="let paypal of profile.paypals">
+            <td><i class="fab fa-cc-paypal"></i></td>
+            <td>{{paypal.paypal}}</td>
+            <td></td>
+            <td></td>
+          </tr>
+          </tbody>
+
+        </table>
+        <div>
+          <button class="profile-edit-btn btn btn-primary" routerLink="./payment"><i class="fal fa-edit"></i>
+            Edit
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="profile-avatar">
+      <div class="mobileAvatar mb-3 hide-md hide-vl hide-xl hide-lg">
+        <div class="avatar">
+          <div class="avatarImg">
+            <img [src]="profile.avatar">
+            <div class="editAvatar">
+              <input type="file" name="file" (change)="handleUploadImage($event.target.files)" id="avatar"
+                     class="inputfile"/>
+              <i class="far fa-pen"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button class="profile-edit-btn btn-lg btn-primary"><i class="fal fa-edit"></i> Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="aux-profile-content-wrapper" *ngIf="editNameModalShow">
+  <div class="aux-content">
+    <div class="edit-name-modal aux-profile-container">
+      <form class="content aux-profile-container-content" [formGroup]="editNameForm">
+        <label>Enter Name</label>
+        <input class="form-control" formControlName="name" type="text">
+        <button class="btn btn-primary" (click)="editName()">Edit Name</button>
+      </form>
+    </div>
+  </div>
+  <div *ngIf="!(profile$ | async)?.postals.length">
+    <ngx-spinner type="ball-clip-rotate" [fullScreen]="true" size="medium" color="var(--primary)">
+      <p class="loading-text">Loading...</p>
+    </ngx-spinner>
+  </div>
+  <div (click)="editNameModalShow=false" class="edit-name-backdrop">
+  </div>
+</div>

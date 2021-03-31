@@ -1,0 +1,254 @@
+<div class="aux-support">
+  <div class="aux-ticket-container">
+    <div class=" aux-ticket-header">
+      <span class=" px-1">Support Tickets</span>
+      <i *ngIf="showTickets || newTicketMessage" class=" far fa-times" (click)="ticketToggle()"></i>
+      <i *ngIf="newTicket && !newTicketMessage || ticketDetail" tooltip="Back To Tickets" class="nav-link"
+        placement="bottom" (click)="ticketsShow()" class="fas fa-long-arrow-left"></i>
+    </div>
+    <div class="sign-in-message">
+      <div class="mt-3 mb-3" *ngIf="isSigningIn && !isSignIn" [formGroup]="signInForm">
+        <div class="mt-3"><span>Not have an account? <a class="text-primary ml-1" router-link="/sign-in"
+              (click)="isSigningIn=false">Signup</a> to continue</span></div>
+        <hr>
+        <div class="form-group">
+          <label>Email</label>
+          <input class="form-control" formControlName="user" type="email"
+            [class.is-invalid]="signInForm.controls['user'].errors && signInSubmitted">
+          <div class="mb-2 invalid-feedback">
+            Email is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input class="form-control" formControlName="password" type="password"
+            [class.is-invalid]="signInForm.controls['password'].errors && signInSubmitted">
+          <div class="mb-2 invalid-feedback">
+            Password is required
+          </div>
+        </div>
+        <button type="submit" class="btn btn-block btn-primary" (click)="login()">
+          <i *ngIf="!loginFail && signInSubmitted" class="fas fa-circle-notch fa-spin"></i>
+          Sign In
+        </button>
+
+        <div *ngIf="loginFail" class="alert alert-danger mt-3" role="alert">
+          Your Credentials are not correct
+        </div>
+      </div>
+      <div class="mt-3 mb-3" [formGroup]="signupForm" *ngIf="!isSigningIn && !isSignIn">
+        <div class="form-group">
+          <label>Email</label>
+          <input class="form-control" formControlName="email"
+            [class.is-invalid]="signupForm.controls['email'].errors && signupSubmitted" type="email" required>
+          <div class="mb-2 invalid-feedback">
+            Email is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label>User Name</label>
+          <input class="form-control" type="text" formControlName="nameFirst"
+            [class.is-invalid]="signupForm.controls['nameFirst'].errors && signupSubmitted" required>
+          <div class="mb-2 invalid-feedback">
+            username is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <div class="form-icon-append mb-3">
+            <input (keyup)="isError=false"
+              [class.is-invalid]="signupForm.controls['userPassword'].errors && signupSubmitted"
+              [type]="isPassword?'password':'text'" formControlName="userPassword" class="form-control mb-3" required>
+            <i [ngClass]="icon" *ngIf="!isError" (click)='onIconClick()' class="input-group-text icon-password"></i>
+            <div class="mb-2 invalid-feedback">
+              Password is required.
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <div class="form-icon-append mb-3">
+            <input (keyup)="isConfirmPasswordError=false " [type]="isConfirmPassword?'password':'text'"
+              [class.is-invalid]="signupForm.controls['userPasswordConfirmation'].errors && signupSubmitted"
+              formControlName="userPasswordConfirmation" class="form-control mb-3" required>
+            <div class="mb-2 invalid-feedback">
+              Password is required.
+            </div>
+            <i [ngClass]="icon2" *ngIf="!isConfirmPasswordError" (click)='onIconTwoClick()'
+              class="input-group-text icon-password"></i>
+          </div>
+        </div>
+        <div class="danger">{{signupError}}</div>
+        <button class="btn mt-3 text-center btn-primary" type="submit" (click)="ticketSignup()">Sign Up</button>
+      </div>
+    </div>
+    <div *ngIf="showTickets && isSignIn" class="aux-ticket-list d-flex">
+      <div class="aux-ticket-list-header" [formGroup]="filterForm">
+        <button (click)="showCreateTicket()" class=" btn btn-secondary mb-3 " status="info">
+          <span> New Ticket </span>
+        </button>
+        <ng-select (change)="filter($event)" class="form-control custom" placeholder="Filter By" [items]="filterBy"
+                   appearance="outline" [searchable]="false" formControlName="flagStatus">
+        </ng-select>
+      </div>
+      <div *ngIf="!ticketsObs.length">
+        <ngx-spinner type="ball-clip-rotate" [fullScreen]="false" size="medium" color="var(--primary)">
+          <p>Loading...</p>
+        </ngx-spinner>
+      </div>
+      <div *ngIf="ticketsObs  as tickets" class="aux-ticket-list-wrapper" #ticketContainer infinite-scroll
+           [fromRoot]="true" [scrollWindow]="false" [infiniteScrollDistance]="1" [infiniteScrollThrottle]="300"
+           (scrolled)="onScroll()">
+        <div *ngFor="let ticket of tickets; let index = index;" class="aux-ticket">
+          <div class=" aux-ticket-card p20" (click)="showTicketMessage(ticket)">
+            <div class=" aux-ticket-card-header">
+              <div>
+                <i class="fas fa-envelope"></i>
+                <span>{{ticket.support.supportCategory}}</span>
+              </div>
+              <div *ngIf="ticket.flagStatus == 'Awating User' || ticket.flagStatus == 'Awating Support'"
+                   class="btn-primary btn" status="success">
+                {{ticket.flagStatus}}
+              </div>
+              <div class="btn-secondary btn" *ngIf="ticket.flagStatus == 'Open' " status="success">
+                {{ticket.flagStatus}}
+              </div>
+              <div class="btn-secondary btn" *ngIf="ticket.flagStatus == 'Closed' " status="success">
+                {{ticket.flagStatus}}
+              </div>
+            </div>
+            <div class="aux-ticket-card-body">
+              <div>
+                <span style="color:var(--primary);">{{ticket.ticketTitle}}</span>
+              </div>
+              <div class="aux-ticket-contact">
+                <span>{{ticket.stampCreated * 1000 | date: 'MM/dd/y'}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-loading" *ngIf="loading">
+          <ngx-spinner type="ball-clip-rotate" [fullScreen]="false" size="medium" color="var(--primary)">
+            <p class="loading-text">Loading...</p>
+          </ngx-spinner>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="newTicket" class="aux-ticket-list p-3 d-flex">
+      <div>
+        <form [formGroup]="ticketForm">
+          <div class="form-group">
+            <div *ngIf="newTicketMessage" class="text-center mt-3 mb-3">Hi, How can we help you today?</div>
+            <label class="mb-3">Type:</label>
+            <div class="ml-3 mb-3">
+              <div class="form-check d-inline mr-3" *ngFor="let type of ticketTypes">
+                <label class="radio form-check-label ml-2">{{type}}
+                  <input class="form-check-input" formControlName="type" type="radio" [value]="type" name="type">
+                  <span class="checkround"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <p>subject</p>
+            <input type="text" [placeholder]="'subject'"
+              [class.is-invalid]="ticketForm.controls['title'].errors && submitted" formControlName="title"
+              class="form-control" required>
+            <div class="mb-2 invalid-feedback">
+              Subject is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <p>Message</p>
+            <textarea class="form-control" [placeholder]="'Please input message'"
+              [class.is-invalid]="ticketForm.controls['message'].errors && submitted" formControlName="message" rows="6"
+              required></textarea>
+            <div class="mb-2 invalid-feedback">
+              Message is required.
+            </div>
+          </div>
+          <div class="form-group file-upload aux-support-file-upload">
+            <label>
+              <i class="far fa-paperclip"></i>
+              <input type="file" hidden name="attachFile" id="attachFile" class="inputfile"
+                     (change)="attachFiles($event.target.files)" multiple>
+              Attach File
+            </label>
+
+            <span *ngIf="file" class="file-info">{{file.name}}</span>
+            <span *ngIf="file" class="filesize">{{file.size | fileSize}}</span>
+          </div>
+          <div class="d-flex align-items-center">
+            <button class="btn btn-primary btn-lg " (click)="createTicket(ticketForm.value)">create ticket</button>
+          </div>
+        </form>
+      </div>
+
+
+    </div>
+    <div class="aux-message-container" *ngIf="ticketDetail">
+      <div>
+        <div class="aux-ticket-list-header">
+          <div class="aux-ticket-title">
+            {{ticket.ticketTitle}}
+          </div>
+          <div class="d-flex justify-content-around">
+            <span>
+              Type: {{ticket.support.supportCategory}}
+            </span>
+            <span class="text-right">
+              Created at: {{ticket.stampCreated * 1000 | date: 'MM/dd/y'}}
+            </span>
+          </div>
+          <div class="loading" *ngIf="!messagesObs.length">
+            <ngx-spinner type="ball-clip-rotate" [fullScreen]="false" size="medium" color="var(--primary)">
+              <p>Loading...</p>
+            </ngx-spinner>
+
+          </div>
+        </div>
+        <div class="aux-message-list" *ngIf="messagesObs as messages">
+          <div>
+            <div class="card-body" *ngFor="let message of messages; let index = index">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <img src="{{message.user.avatar_url}}" class="rounded-circle mr-3" height="40px" width="40px"
+                       alt="avatar">
+
+                  <span>{{message.user.name_first + ' ' + message.user.name_last}}</span>
+                </div>
+                <div class="card-date  text-right">
+                  {{message.stampCreated * 1000 | date: 'M/d/y, h:mm a'}}
+                </div>
+              </div>
+              <p class="pt-3">{{message.messageText}}</p>
+              <footer><a *ngFor="let attachment of message.attachments" class="thumbnail"
+                  (click)="download(attachment)"><img height="100px" class="mr-3" width="100px"
+                    [src]="attachment.attachment_url"><i class="font-weight-bold far fa-download"></i>
+                  {{attachment.attachment_name}}</a>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="aux-ticket-message">
+        <div [formGroup]="ticketMessage">
+          <textarea placeholder="please input message" formControlName="inputMessage" class="form-control "
+                    rows="3"></textarea>
+        </div>
+        <div class="d-flex">
+          <div class="col-md-10"><label title="upload" for="upload-input"><i class="far fa-paperclip"></i></label><input
+            id="upload-input" style="display:none" class="custom-file-upload" type="file"
+            (change)="attachFiles($event.target.files)">
+            <span *ngIf="file" class="file-info">{{file.name}}</span>
+            <span *ngIf="file" class="filesize">{{file.size | fileSize}}</span>
+          </div>
+          <button class="col-md-2 text-center btn btn-primary btn-sm"
+                  (click)="onSend(ticketMessage.value)">send
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

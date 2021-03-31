@@ -1,0 +1,22 @@
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { SignInComponent } from './sign-in.component';
+
+describe('UserComponent', () => {
+  let component: SignInComponent;
+  let fixture: ComponentFixture<SignInComponent>;
+
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ SignInComponent ],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(SignInComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  }));
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

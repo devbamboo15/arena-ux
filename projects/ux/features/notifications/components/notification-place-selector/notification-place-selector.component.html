@@ -1,0 +1,17 @@
+<div class="w-100 row">
+  <ng-container *ngFor="let p of notificationPlaces; let i = index;">
+    <div class="col-4">
+      <div class="p-2 place-container" [class.selected-place-container]="p === placeValue">
+        <div class="pr-3 pl-3 pb-0 pt-0">
+          <div class="row">
+            <ng-container *ngFor="let pi of notificationPlaces; let j = index">
+              <div class="col-4 p-0">
+                <div (click)="placeValue = p" class="place" [class.selected-place]="i === j"></div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

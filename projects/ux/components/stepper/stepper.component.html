@@ -1,0 +1,14 @@
+<div class="input-group input-group-sm input-stepper">
+  <button (click)="decrement()"
+          [disabled]="minValue !== undefined && counterValue - step < minValue"
+          class="btn btn-sm btn-icon btn-outline-primary" type="button">
+    <i class="fal fa-arrow-down"></i>
+  </button>
+  <input (keyup)="counterChanged($event)" (change)="valueUpdated($event)"
+         type="text" class="form-control mx-2" [(ngModel)]="_counterValue">
+  <button (click)="increment()"
+          [disabled]="maxValue !== undefined && counterValue + step > maxValue"
+          class="btn btn-sm btn-icon btn-outline-primary" type="button">
+    <i class="fal fa-arrow-up"></i>
+  </button>
+</div>

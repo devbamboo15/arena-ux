@@ -1,0 +1,40 @@
+aux-brand:focus {
+  border: none;
+  outline: none;
+}
+aux-brand {
+  display: block;
+}
+
+.navbar-brand {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  //height: 38.7px;
+
+  .inner-brand {
+    vertical-align: middle;
+    //top: -1px;
+    position: relative;
+    svg {
+      top: -1px;
+      position: relative;
+      height: 24px;
+      g{
+        fill: $brand-color;
+      }
+    }
+  }
+  span {
+    font-size: 24px;
+    line-height: 24px;
+    color: $brand-project-color;
+    font-weight: 700;
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+    left: -5px;
+    font-family: proxima-nova,sans-serif!important;
+  }
+}

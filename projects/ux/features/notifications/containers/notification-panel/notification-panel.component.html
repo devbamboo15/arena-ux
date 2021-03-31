@@ -1,0 +1,26 @@
+<div class="card-header p-3">
+  <div>
+    <h5 class="card-header-title m-0">Notifications</h5>
+    <div class="notifications-statuses">
+      <a class="small" [class.inactive]="status !== 'unread'" (click)="status = 'unread'">Unread</a>
+      <a class="ml-1 small" [class.inactive]="status !== null" (click)="status = null">History</a>
+    </div>
+  </div>
+  <div class="ml-1">
+    <button (click)="panelRef.hide()" class="btn btn-sm btn-link">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+</div>
+<div class="card-body p-3">
+  <aux-notifications-list
+    (archive)="archiveNotification($event)"
+    (delete)="deleteNotification($event)"
+    (requested)="requestNotifications($event)"
+    [isLoading]="isGetAllNotificationsLoading$ | async"
+    [meta]="allNotificationMeta$ | async"
+    [request]="allNotificationRequest$ | async"
+    [notifications]="allNotifications$ | async">
+  </aux-notifications-list>
+</div>
+

@@ -1,0 +1,356 @@
+@import "~bootstrap/scss/variables";
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+// Color system
+
+$white: #FFFFFF;
+$gray-300: #90a3d7;
+$gray-600: #7785ad;
+$gray-700: #3b4358;
+$gray-900: #282c3b;
+$black: #171a22;
+
+$gray-600-dark: #324d95;
+$gray-700-dark: #32467b;
+$gray-800-dark: #22293d;
+$gray-900-dark: #1b212e;
+$black-dark: #171a22;
+
+$light: $gray-800-dark;
+$lighter: $gray-900-dark;
+
+$avatar-size-base: 3rem;
+$avatar-size-xs: 1.625rem;
+$avatar-size-sm: 2.5rem;
+$avatar-size-lg: 4rem;
+$avatar-size-xl: 5.125rem;
+$avatar-size-xxl: 8rem;
+
+$avatar-title-bg: $gray-800-dark;
+$avatar-title-color: $white;
+
+$blue: #2C7BE5; // NOT USED
+$indigo: #727cf5; // NOT USED
+$purple: #6b5eae; // NOT USED
+$pink: #ff679b; // NOT USED
+$red: red;
+$orange: #fd7e14; // NOT USED
+$yellow: #F6C343;
+$green: #00D97E;
+$teal: #02a8b5; // NOT USED
+$cyan: #39afd1; // NOT USED
+$carnation: #f74264;
+
+$colors: ();
+$colors: map-merge(
+    (
+      "blue": $blue,
+      "indigo": $indigo,
+      "purple": $purple,
+      "pink": $pink,
+      "red": $red,
+      "orange": $orange,
+      "yellow": $yellow,
+      "green": $green,
+      "teal": $teal,
+      "cyan": $cyan,
+      "white": $white,
+      "gray": $gray-600,
+      "gray-dark": $gray-800,
+      "carnation": $carnation,
+    ),
+    $colors
+);
+
+$primary: $carnation;
+$secondary: $gray-700;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+$light: $gray-200;
+$dark: $black;
+
+$theme-colors: ();
+$theme-colors: map-merge(
+    (
+      "primary": $primary,
+      "secondary": $secondary,
+      "success": $success,
+      "info": $info,
+      "warning": $warning,
+      "danger": $danger,
+      "light": $light,
+      "dark": $dark
+    ),
+    $theme-colors
+);
+
+$lighter: $gray-100;
+
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+$yiq-text-dark: $gray-900;
+$yiq-text-light: $white;
+
+// Characters which are escaped by the escape-svg function
+$escaped-characters: (("<", "%3c"),
+  (">", "%3e"),
+  ("#", "%23"),
+);
+
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-validation-icons: false;
+
+
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+
+$spacer: 1.5rem;
+$spacers: ();
+$spacers: map-merge((0: 0,
+  1: ($spacer * .125), // 3px
+  2: ($spacer * .25), // 6px
+  3: ($spacer * .5), // 12px
+  4: $spacer, // 24px
+  5: ($spacer * 1.5), // 36px
+  6: ($spacer * 3), // 72px
+  7: ($spacer * 4.5), // 108px
+  8: ($spacer * 9) // 216px
+), $spacers);
+
+// This variable affects the `.h-*` and `.w-*` classes.
+$sizes: ();
+$sizes: map-merge((15: 15%,
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%), $sizes);
+
+
+// Grid
+$grid-breakpoints: (
+  xs: 0,
+  vs: 300px,
+  sm: 500px,
+  md: 750px,
+  lg: 1000px,
+  vl: 1300px,
+  xl: 1600px
+);
+
+$container-max-widths: (
+  xs: 299px,
+  vs: 499px,
+  sm: 749px,
+  md: 999px,
+  lg: 1299px,
+  vl: 1599px,
+  xl: 1999px
+);
+
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg: $white;
+$body-color: $black;
+
+
+// Links
+//
+// Style anchor elements.
+
+$link-color: theme-color("primary");
+$link-hover-color: darken($link-color, 15%);
+$link-hover-decoration: none;
+
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-gutter-width: 24px;
+
+
+// Fonts
+//
+// Font, line-height, and color for body text, headings, and more.
+
+$line-height-lg: 1.5 !default;
+$line-height-sm: 1.75 !default;
+
+$border-width: 1px !default;
+$border-color: $gray-300 !default;
+
+$border-radius: 0.375rem !default;
+$border-radius-lg: 0.5rem !default;
+$border-radius-sm: 0.25rem !default;
+$border-radius-xs: .1875rem !default;
+
+$component-active-bg: $primary !default;
+
+$caret-width: .25em !default;
+
+// stylelint-disable value-keyword-case
+$font-family-sans-serif: 'Lato Medium', sans-serif;
+$font-family-base: $font-family-sans-serif;
+// stylelint-enable value-keyword-case
+
+$font-size-base: 0.9375rem; // 15px
+$font-size-lg: ($font-size-base * 1.133333333334); // 17px
+$font-size-sm: ($font-size-base * .866666667); // 13px
+
+$font-weight-light: 400;
+$font-weight-normal: 400;
+$font-weight-bold: 600;
+
+$line-height-base: 1.5;
+
+$headings-margin-bottom: $spacer * .75;
+$headings-font-weight: 500;
+$headings-line-height: 1.1;
+
+$h1-font-size: 1.625rem;
+$h2-font-size: 1.25rem;
+$h3-font-size: 1.0625rem;
+$h4-font-size: 0.9375rem;
+$h5-font-size: 0.8125rem;
+$h6-font-size: 0.625rem;
+
+$display1-size: 4rem;
+$display2-size: 3.25rem;
+$display3-size: 2.625rem;
+$display4-size: 2rem;
+
+$display1-weight: 600;
+$display2-weight: 600;
+$display3-weight: 600;
+$display4-weight: 600;
+$display-line-height: $headings-line-height;
+
+$lead-font-size: ($font-size-base * 1.25);
+
+$small-font-size: 0.8125rem;
+
+$text-muted: #6c757d;
+
+$blockquote-font-size: ($font-size-base * 1.25);
+
+$hr-border-color: $border-color;
+$hr-margin-y: 1rem;
+
+$list-inline-padding: 6px;
+
+// Badges
+
+$badge-font-size: 76%;
+$badge-font-weight: $font-weight-normal;
+$badge-padding-y: .33em;
+
+// Progress bars
+
+$progress-border-radius: 200px; // Always rounds even if height is manually set higher
+
+// Code
+
+$code-color: $carnation;
+
+
+// Type
+
+$font-size-xs: ($font-size-base * .6666666667); // 10px
+
+// Badges
+
+$badge-soft-bg-level: -10;
+
+$badge-padding-x: .5em;
+
+// Backgrounds
+
+$bg-soft-level: -11;
+
+$progress-bar-bg: $primary;
+
+// Tables
+$table-head-bg: darken(#171A21, 1);
+$table-head-color: #ffffff;
+$table-border-color: lighten(#171A21, 6);
+$table-border-width: 1px;
+$table-color: #ffffff;
+$table-cell-padding: .75rem;
+
+$table-hover-bg: lighten(#1b212e, 4);
+
+
+// Forms
+
+$input-bg: rgba(255, 255, 255, .05);
+$input-color: $white;
+$input-border-radius: 3px;
+$input-border-color: $input-bg;
+
+$custom-select-bg: $input-bg;
+$custom-select-border-color: transparent;
+$custom-select-color: $input-color;
+$custom-select-indicator-color: $input-color;
+//$custom-select-background: $custom-select-bg;
+
+$input-focus-border-color: $input-bg;
+$input-focus-bg: $input-bg;
+$input-focus-box-shadow: none;
+$input-focus-color: $input-color;
+
+$custom-select-focus-box-shadow: $input-focus-box-shadow;
+$custom-select-focus-border-color: $custom-select-border-color;
+
+$input-placeholder-color: rgba(255, 255, 255, .5);
+
+$custom-control-indicator-checked-box-shadow: none;
+$custom-control-indicator-focus-box-shadow: none;
+//$custom-select-bg: ;
+
+// Cards
+
+$card-bg: #1b212e;
+
+// Modals
+
+$modal-content-bg: #212121;
+$modal-content-border-radius: 0;
+$modal-header-border-color: rgba(0, 0, 0, 0.125);
+$modal-footer-border-color: rgba(0, 0, 0, 0.125);
+
+$close-color: $primary;
+$close-text-shadow: none;
+
+
+// Borders
+
+$border-color: $gray-900;
+
+// Tooltips
+
+$tooltip-bg: $primary;
+$tooltip-arrow-color: $primary;
+$tooltip-padding-x: .5rem;
+$tooltip-padding-y: .5rem;
+$tooltip-border-radius: 3px;
+
+// Carousel
+$carousel-control-color: $primary;
+
+// Buttons
+$input-btn-focus-box-shadow: none;
+$btn-focus-box-shadow: $input-btn-focus-box-shadow;

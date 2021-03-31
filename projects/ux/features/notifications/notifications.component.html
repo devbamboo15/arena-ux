@@ -1,0 +1,39 @@
+<div *ngIf="isAuthorized$ | async" class="dropdown" dropdown #dropdown="bs-dropdown" placement="bottom right"
+     [insideClick]="true"
+     [isAnimated]="true">
+  <button (click)="openAll()" class="btn btn-secondary-icon notifications-icon"
+          *ngIf="!showDD" role="button" [class.notifications-icon-new]="(newNotifications$ | async).length > 0"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fad fa-bell"></i>
+  </button>
+  <button class="btn btn-secondary-icon notifications-icon" *ngIf="showDD" dropdownToggle role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+          [class.notifications-icon-new]="(newNotifications$ | async).length > 0">
+    <i class="fad fa-bell"></i>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right notifications-dropdown dropdown-menu-card" *dropdownMenu
+       aria-labelledby="navbarDropdown">
+    <div class="card-header">
+      <h5 class="card-header-title">Notifications</h5>
+      <a class="small" (click)="openAll(); dropdown.hide()">View All</a>
+    </div>
+    <div class="card-body p-3">
+      <ng-container *ngIf="(isGetNewNotificationsLoading$ | async) === false; else spinner">
+        <ng-container *ngIf="(newNotifications$ | async).length !== 0; else noNewMessage">
+          <aux-notifications-list
+            (archive)="archiveNotification($event)"
+            (delete)="deleteNotification($event)"
+            [notifications]="newNotifications$ | async">
+          </aux-notifications-list>
+        </ng-container>
+        <ng-template #noNewMessage>
+          No new notifications
+        </ng-template>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #spinner>
+  <aux-notifications-spinner></aux-notifications-spinner>
+</ng-template>

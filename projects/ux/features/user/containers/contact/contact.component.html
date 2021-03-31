@@ -1,0 +1,80 @@
+<div class="aux-profile-content-wrapper">
+  <div class="aux-heading mb-5">
+    PLEASE PROVIDE YOUR <span class="text-primary">CONTACT INFORMATION </span>BELOW.
+  </div>
+  <div class="aux-content">
+    <div class="aux-profile-container col-6 mb-3">
+      <h5 class="text-primary">Email:</h5>
+      <div class="aux-profile-container-content">
+        <form [formGroup]="emailForm" (submit)="addEmail()">
+          <div class="d-flex ">
+            <div class="input-content  justify-content-around">
+              <label>Email</label>
+              <input type="email" formControlName="userAuthEmail" class="form-control">
+            </div>
+            <div class="input-content">
+              <button class="btn btn-inline btn-primary btn-sm" type="submit">Add</button>
+            </div>
+          </div>
+        </form>
+        <div>
+          <div class="aux-profile-list mt-5">
+            <div class="aux-profile-list-content mb-3" *ngFor="let email of (profile$ | async).emails">
+              <div class=" d-flex justify-content-between">
+                <div><input type="radio" *ngIf="email.flagPrimary && email.flagVerified"
+                            (change)="editEmail(email.userAuthEmail)" name="email"> {{email.userAuthEmail}}</div>
+                <div>
+                  <span class="btn-sm btn-secondary mr-1" *ngIf="!email.flagVerified"
+                        (click)="verifyEmail(email.rowUuid)">verify</span>
+                  <span class="btn-sm btn-primary" *ngIf="!email.flagPrimary"
+                        (click)="deleteEmail(email.userAuthEmail)">Delete</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aux-profile-list ml-3">
+      <div class="aux-profile-container col-5">
+        <h5 class="text-primary">Phone:</h5>
+        <div class="aux-profile-container-content">
+          <form [formGroup]="phoneForm" (submit)="addPhone()">
+            <div class="d-flex profile-input-group justify-content-around">
+              <div class="input-content">
+                <ng-select placeholder="Type" formControlName="phoneType" class="form-control custom">
+                  <ng-option [value]="type" *ngFor="let type of phoneTypes">
+                    {{type}}
+                  </ng-option>
+                </ng-select>
+              </div>
+              <div class="input-content">
+                <input type="text" formControlName="phoneNumber" class="form-control">
+              </div>
+              <div class="input-content">
+                <button class="btn btn-primary" type="submit">Add</button>
+              </div>
+            </div>
+          </form>
+          <div>
+            <div class="aux-profile-list ml-3 mt-5">
+              <div class="aux-profile-list-content mb-3 d-flex justify-content-between"
+                   *ngFor="let phone of (profile$ | async).phones">
+                <span class="list-title pr-2">
+                  {{phone.phoneType}}
+                </span>
+                <span>
+                  {{phone.phoneNumber}}
+                </span>
+                <button class="btn-sm btn-primary" *ngIf="!phone.flagPrimary" (click)="deletePhone(phone.phoneNumber)">
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

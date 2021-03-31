@@ -1,0 +1,136 @@
+<div class="header">
+  <div class="header-body">
+    <h1 class="header-title">
+      Dropdowns
+    </h1>
+    <p class="header-subtitle">
+      Toggle contextual overlays for displaying lists of links and more with the Bootstrap dropdown plugin. Please read
+      the <a href="https://getbootstrap.com/docs/4.5/components/dropdowns/" target="_blank">official Bootstrap
+      documentation</a> and <a href="https://valor-software.com/ngx-bootstrap/#/dropdowns" target="_blank">official
+      ngx-bootstrap documentation</a> for a full list of options.
+    </p>
+  </div>
+</div>
+<div class="mb-3">
+  <div class="mb-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="btn-group" dropdown>
+          <button id="button-basic" dropdownToggle type="button" class="btn btn-white dropdown-toggle"
+                  aria-controls="dropdown-basic">
+            Button dropdown <span class="caret"></span>
+          </button>
+          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+              role="menu" aria-labelledby="button-basic">
+            <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+            </li>
+          </ul>
+        </div>&nbsp;
+        <div class="btn-group" dropdown>
+          <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                  aria-controls="dropdown-basic">
+            Button dropdown <span class="caret"></span>
+          </button>
+          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+              role="menu" aria-labelledby="button-basic">
+            <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+            </li>
+          </ul>
+        </div>&nbsp;
+        <div class="btn-group" dropdown>
+          <button type="button" class="btn btn-danger">Action</button>
+          <button id="button-split" type="button" dropdownToggle
+                  class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                  aria-controls="dropdown-split">
+            <span class="caret"></span>
+            <span class="sr-only">Split button!</span>
+          </button>
+          <ul id="dropdown-split" *dropdownMenu class="dropdown-menu"
+              role="menu" aria-labelledby="button-split">
+            <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Another action</a>
+            </li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Something else
+              here</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Dropdown ellipsis</h2>
+    <p class="text-muted mb-2">
+      Creates a compact dropdown toggler with a Fontawesome icon, use <code>.dropdown-ellipses</code> on button.
+    </p>
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-header-title">
+          Latest Music
+        </h4>
+        <div class="btn-group" dropdown>
+          <button dropdownToggle type="button" class="dropdown-toggle dropdown-ellipses"
+                  aria-controls="dropdown-basic">
+            <i class="fas fa-ellipsis-v"></i>
+          </button>
+          <ul *dropdownMenu class="dropdown-menu dropdown-menu-right"
+              role="menu" aria-labelledby="button-basic">
+            <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+            </li>
+          </ul>
+        </div>&nbsp;
+      </div>
+      <div class="card-footer">
+        <pre><code [highlight]="code1" [languages]="['html']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Dropdown card</h2>
+    <p class="text-muted mb-2">
+      Turns the default Bootstrap dropdown menu into a fully functional <code>.card</code> component. The height of the
+      <code>.card-body</code> container will be limited and a scrolling bar will appear once this height is exceeded.
+    </p>
+    <div class="card">
+      <div class="card-body">
+        <div class="btn-group" dropdown>
+          <button dropdownToggle type="button" class="btn btn-white dropdown-toggle"
+                  aria-controls="dropdown-basic">
+            Card Dropdown
+          </button>
+          <div *dropdownMenu class="dropdown-menu dropdown-menu-card"
+               role="menu" aria-labelledby="button-basic">
+            <div class="card-header">
+              <h4 class="card-header-title">
+                Dropdown Card
+              </h4>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat recusandae rem autem impedit ad odio,
+                enim tempore possimus non minus quod dignissimos ipsum eveniet odit, ratione molestiae, velit a dolorem!
+              </p>
+            </div>
+          </div>
+        </div>&nbsp;
+      </div>
+      <div class="card-footer">
+        <pre><code [highlight]="code2" [languages]="['html']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+</div>

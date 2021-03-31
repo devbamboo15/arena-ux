@@ -1,0 +1,62 @@
+::ng-deep {
+
+  .btn-icon {
+
+  }
+
+  //
+  //.tooltip.bottom .tooltip-arrow:before,
+  //.tooltip.bottom .tooltip-arrow {
+  //  border-bottom-color: #f74264 !important;
+  //}
+  //
+  //.bs-tooltip-right .arrow:before{
+  //  border-right-color: #f74264 !important;
+  //}
+  //
+  //.bs-tooltip-left .arrow:before{
+  //  border-left-color: #f74264 !important;
+  //}
+  //
+  //.tooltip.left .tooltip-arrow:before,
+  //.tooltip.left .tooltip-arrow {
+  //  border-left-color: #f74264 !important;
+  //}
+  //
+  //.tooltip.top .tooltip-arrow:before,
+  //.tooltip.top .tooltip-arrow {
+  //  border-top-color: #f74264 !important;
+  //}
+
+
+  aux-app {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    contain: layout size style;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  // Buttons
+  //.tab-container{
+  //  .nav-link.active {
+  //    background-color: var(--primary);
+  //    color: var(--text);
+  //  }
+  //
+  //  a:hover {
+  //    color: var(--primary);
+  //  }
+  //
+  //  a {
+  //    background-color: transparent;
+  //    color: var(--tab-color);
+  //    text-decoration: none;
+  //  }
+  //}
+}

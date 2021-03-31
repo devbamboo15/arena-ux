@@ -1,0 +1,278 @@
+<div class="header">
+  <div class="header-body">
+    <h1 class="header-title">
+      Forms
+    </h1>
+    <p class="header-subtitle">
+      Arena.ux supports all of Bootstrap's default form styling in addition to a handful of new input types and
+      features. Please read <a href="https://getbootstrap.com/docs/4.5/components/forms/" target="_blank">the official
+      documentation</a> for a full
+      list of options from Bootstrap's core library.
+    </p>
+  </div>
+</div>
+<div class="mb-3">
+  <div class="mb-4">
+    <div class="card">
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input autocomplete="off" type="email" class="form-control" id="exampleInputEmail1"
+                   placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Validation</h2>
+    <p class="text-muted mb-2">Indicate invalid and valid form fields with <code>.is-invalid</code> and
+      <code>.is-valid</code> classes.</p>
+    <div class="card">
+      <div class="card-body">
+        <form>
+          <div class="form-row">
+            <div class="col-12 col-md-6 mb-3">
+              <label for="validationServer01">First name</label>
+              <input type="text" class="form-control is-valid" id="validationServer01" placeholder="First name"
+                     value="Mark" required="">
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+              <label for="validationServer02">Last name</label>
+              <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name"
+                     value="Otto" required="">
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-12 col-md-6 mb-3">
+              <label for="validationServer03">City</label>
+              <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="City" required="">
+              <div class="invalid-feedback">
+                Please provide a valid city.
+              </div>
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+              <label for="validationServer04">State</label>
+              <input type="text" class="form-control is-invalid" id="validationServer04" placeholder="State"
+                     required="">
+              <div class="invalid-feedback">
+                Please provide a valid state.
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required="">
+              <label class="form-check-label" for="invalidCheck3">
+                Agree to terms and conditions
+              </label>
+              <div class="invalid-feedback">
+                You must agree before submitting.
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit form</button>
+        </form>
+      </div>
+      <div class="card-footer">
+        <pre><code [highlight]="code1" [languages]="['html']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Rounded</h2>
+    <p class="text-muted mb-2">Round form control corners with the <code>.form-control-rounded</code> modifier.</p>
+    <div class="card">
+      <div class="card-body">
+        <form>
+          <input type="text" class="form-control form-control-rounded" placeholder="Form control rounded">
+        </form>
+      </div>
+      <div class="card-footer">
+        <pre><code [highlight]="code2" [languages]="['html']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Flush</h2>
+    <p class="text-muted mb-2">Remove vertical padding and borders from a form control with the <code>.form-control-flush</code>
+      modifier.</p>
+    <div class="card">
+      <div class="card-body">
+        <form>
+          <input type="text" class="form-control form-control-flush" placeholder="Form control flush">
+        </form>
+      </div>
+      <div class="card-footer">
+        <pre><code [highlight]="code3" [languages]="['html']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Auto</h2>
+    <p class="text-muted mb-2">Remove vertical padding and set form control's height to auto with the <code>.form-control-auto</code>
+      modifier.</p>
+    <div class="card">
+      <div class="card-body">
+        <form>
+          <input type="text" class="form-control form-control-flush form-control-auto bg-light"
+                 placeholder="Form control auto">
+        </form>
+      </div>
+      <div class="card-footer">
+        <pre><code [highlight]="code4" [languages]="['html']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Input group merge</h2>
+    <p class="text-muted mb-2">A slightly modified version of the default input groups that always keeps icons as a part
+      of the form control.</p>
+    <div class="card">
+      <div class="card-body">
+        <div class="input-group input-group-merge mb-3">
+          <input type="text" class="form-control form-control-prepended" placeholder="Input group prepended">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="far fa-eye"></i>
+            </div>
+          </div>
+        </div>
+        <div class="input-group input-group-merge mb-3">
+          <input type="text" class="form-control form-control-appended" placeholder="Input group appended">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <i class="fas fa-lock-alt"></i>
+            </div>
+          </div>
+        </div>
+        <div class="input-group input-group-merge mb-3">
+          <input type="text" class="form-control form-control-prepended is-valid" placeholder="Input group prepended">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="far fa-eye"></i>
+            </div>
+          </div>
+        </div>
+        <div class="input-group input-group-merge">
+          <input type="text" class="form-control form-control-appended is-invalid" placeholder="Input group appended">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <i class="fas fa-lock-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <pre><code [highlight]="code5" [languages]="['html']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Switch</h2>
+    <p class="text-muted mb-2">Replaces a standard checkbox input with a toggle switch.</p>
+    <div class="card">
+      <div class="card-body">
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="customSwitch1">
+          <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+        </div>
+      </div>
+      <div class="card-footer">
+        <pre><code [highlight]="code6" [languages]="['html']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Date picker</h2>
+    <p class="text-muted mb-2">Use <a href="https://valor-software.com/ngx-bootstrap/#/datepicker" target="_blank">ngx-bootstrap
+      official documentation</a> for full list of options. Use <code>theme-arena</code> as theme.</p>
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-xs-12 col-12 col-md-4 form-group">
+            <input type="text"
+                   placeholder="Datepicker"
+                   class="form-control"
+                   [bsConfig]="bsConfig"
+                   bsDatepicker>
+          </div>
+          <div class="col-xs-12 col-12 col-md-4 form-group">
+            <input type="text"
+                   placeholder="Daterangepicker"
+                   class="form-control"
+                   [bsConfig]="bsConfig"
+                   bsDaterangepicker>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <pre><code [highlight]="code7" [languages]="['html']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Select</h2>
+    <p class="text-muted mb-2">Customizable select box with support for searching, tagging, remote data sets, infinite
+      scrolling, and many other highly used options powered by ng-select. Please read the <a
+        href="https://github.com/ng-select/ng-select" target="_blank">official ng-select documentation</a> for a full
+      list of options. Use boostrap style styling pass <code>.form-control</code> to ng select class.</p>
+    <div class="card">
+      <div class="card-body">
+        <div class="form-group">
+          <label for="exampleFormControlSelect2">Example searchable select</label>
+          <ng-select id="exampleFormControlSelect2"
+                     placeholder="Searchable Select"
+                     class="form-control"></ng-select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Example select</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Example simple select</label>
+          <select class="custom-select" id="exampleFormControlSelect1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect3">Invalid ng-select</label>
+          <ng-select id="exampleFormControlSelect3"
+                     placeholder="Searchable Select"
+                     class="form-control is-invalid"></ng-select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect4">Valid ng-select</label>
+          <ng-select id="exampleFormControlSelect4"
+                     placeholder="Searchable Select"
+                     class="form-control is-valid"></ng-select>
+        </div>
+      </div>
+      <div class="card-footer">
+        <pre><code [highlight]="code8" [languages]="['html']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+</div>

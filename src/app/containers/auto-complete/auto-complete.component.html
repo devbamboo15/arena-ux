@@ -1,0 +1,146 @@
+<div class="header">
+  <div class="header-body">
+    <h1 class="header-title">
+      Autocomplete
+    </h1>
+    <p class="header-subtitle">
+      Component to use <code>autocomplete</code> endpoints.
+    </p>
+  </div>
+</div>
+<div class="mb-3">
+  <div class="mb-4">
+    <h2 class="mb-2">Installation</h2>
+    <p class="text-muted mb-2">
+      To use <code>aux-autocomplete</code> install it this way.
+    </p>
+    <div class="card">
+      <div class="card-footer">
+        <pre><code [highlight]="code1" [languages]="['typescript']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Usage</h2>
+    <p class="text-muted mb-2">
+      Provide <code>apiUrl</code> for direct API calls.
+    </p>
+    <div class="card">
+      <div class="card-body">
+        <aux-autocomplete [apiUrl]="apiURl" [bindLabel]="'name'" [placeHolder]="'Enter Something'"
+                          [queryParam]="queryParams" (valueSelected)="valueSelected($event)">
+        </aux-autocomplete>
+        <ul>
+          <li *ngFor="let items of users">
+            <p>user name : {{items.name}}</p>
+            <p>user uuid : {{items.user_uuid}}</p>
+          </li>
+        </ul>
+      </div>
+      <div class="card-footer">
+        <pre><code [highlight]="code3" [languages]="['html']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <aux-autocomplete [apiUrl]="apiURl" [placeHolder]="'Enter Something'" [queryParam]="queryParams"
+                          (valueSelected)="singleValueSelected($event)" [isMultiSelect]="false">
+        </aux-autocomplete>
+        <ul>
+          <li *ngFor="let items of singleUser">
+            <p>user name : {{items.name}}</p>
+            <p>user uuid : {{items.user_uuid}}</p>
+          </li>
+        </ul>
+      </div>
+      <div class="card-footer">
+        <pre><code [highlight]="code4" [languages]="['html']" [lineNumbers]="true"></code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Inputs</h2>
+    <div class="card">
+      <div class="card-body">
+        <table class="table table-sm">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Param</th>
+            <th scope="col">Description</th>
+            <th scope="col">Type</th>
+            <th scope="col">Default</th>
+            <th scope="col">Available options</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>apiUrl</td>
+            <td>API relative URL</td>
+            <td>string</td>
+            <td>none</td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>queryParam</td>
+            <td>Search query param for api endpoint</td>
+            <td>string</td>
+            <td>none</td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>isMultiSelect</td>
+            <td>Configure auto-complete mode. Multi-select on/off</td>
+            <td>boolean</td>
+            <td>true</td>
+            <td>true, false</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>bindLabel</td>
+            <td>Bind the label in object</td>
+            <td>string</td>
+            <td>'name'</td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>value</td>
+            <td>Default Value</td>
+            <td>Array</td>
+            <td>none</td>
+            <td></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h2 class="mb-2">Outputs</h2>
+    <div class="card">
+      <div class="card-body">
+        <table class="table table-sm">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Param</th>
+            <th scope="col">Description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>valueSelected</td>
+            <td>Emit selected values in array. When multiSelect is false, array value with one element is emitted.
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

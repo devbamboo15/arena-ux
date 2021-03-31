@@ -1,0 +1,99 @@
+input[type='radio']:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: var(--primary);
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid var(--text);
+}
+
+.payment-section{
+  display: flex;
+  justify-content: space-between;
+  overflow: auto;
+
+
+  .profile-edit-btn{
+    position: relative;
+    top: 80px;
+    margin-left: 10px;
+  }
+}
+
+.payment-content {
+  margin-left: 0;
+
+  img {
+    position: relative;
+    top: 100px;
+  }
+
+  @media (max-width: 767px) {
+    flex-direction: column-reverse;
+
+    img {
+      width: 263px;
+      height: 200px;
+      top: 10px;
+    }
+    .mobile-form{
+      flex-direction: column;
+      .form-control{
+        width: fit-content;
+      }
+      ng-select.custom{
+        width: 220px;
+      }
+    }
+  }
+
+  .payment-btn {
+    max-width: 400px;
+
+    @media (max-width: 767px) {
+
+    }
+  }
+}
+
+.table{
+  overflow: auto;
+  color: var(--text);
+
+  @media (max-width: 767px) {
+    width: 400px;
+  }
+
+  thead{
+    th{
+      border-top: none;
+      border-bottom: none;
+    }
+  }
+
+  tbody{
+    color: var(--aux-text-color);
+    tr:nth-child(even) {
+      background-color: var(--light-gray);
+    }
+    tr:nth-child(odd) {
+      background-color: var(--gray);
+    }
+    tr:hover {
+      background: var(--primary);
+
+      td {
+        height: auto;
+      }
+    }
+  }
+
+  i {
+    font-size: 1.5rem
+  }
+}

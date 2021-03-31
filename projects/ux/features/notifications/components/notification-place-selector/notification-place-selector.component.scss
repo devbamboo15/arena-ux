@@ -1,0 +1,19 @@
+.place-container {
+  background-color: transparent;
+  transition: .3s all;
+  border-radius: 5px;
+}
+
+.selected-place-container {
+  background-color: rgba(247, 66, 100, 0.3);
+}
+
+.place {
+  background-color: #cccccc;
+  height: 20px;
+  cursor: pointer;
+}
+
+.selected-place {
+  background-color: var(--primary);
+}

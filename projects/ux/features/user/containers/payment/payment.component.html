@@ -1,0 +1,95 @@
+<div class="payment-content d-flex">
+  <div>
+    <div class="aux-heading mb-5">
+      PLEASE PROVIDE YOUR PAYMENT INFORMATION BELOW FOR <span class="text-primary">SMART CONTRACT
+                </span>PAYOUTS.
+    </div>
+    <div class="col-10 payment-btn d-flex mb-3">
+      <button class="btn btn-primary mr-3" (click)="addAccountToggle()">Add account</button>
+      <button class="btn btn-primary" (click)="addPaypalToggle()">Add paypal</button>
+    </div>
+    <div *ngIf="isAddAccount" [formGroup]="accountForm">
+      <div class="mobile-form d-flex justify-content-between mb-2">
+        <div class="col-6">
+          <label>Bank Name</label>
+          <input type="text" class=" form-control" formControlName="bankName">
+        </div>
+        <div class="col-6">
+          <label>Account Type</label>
+          <ng-select placeholder="Type" formControlName="accountType" class="form-control custom">
+            <ng-option [value]="type" *ngFor="let type of accountTypes">
+              {{type}}
+            </ng-option>
+          </ng-select>
+        </div>
+      </div>
+      <div class="mobile-form d-flex justify-content-around mb-5">
+        <div class="col-6">
+          <label>Account Number</label>
+          <input type="text" class=" form-control" formControlName="accountNumber">
+        </div>
+        <div class="col-6">
+          <label>Routing Number</label>
+          <input type="text" class="form-control" formControlName="routingNumber">
+        </div>
+      </div>
+      <button type="submit" (click)="addAccount()" class="btn btn-primary">Submit</button>
+    </div>
+    <div *ngIf="isAddPaypal" class="mb-3" [formGroup]="paypalForm">
+      <div class="d-flex justify-content-around form-group">
+        <div class="col-8">
+          <label>PayPal Email:</label>
+          <input type="email" formControlName="paypal" class="form-control">
+        </div>
+        <div class="col-4 mt-4">
+          <button type="submit" class="btn btn-primary" (click)="addPaypal()">Submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="payment-section">
+      <table class="table table-hover table-striped">
+        <thead>
+        <tr>
+          <th scope="col"></th>
+          <th></th>
+          <th scope="col">Bank Name</th>
+          <th scope="col">Account Type</th>
+          <th scope="col">Bank Account</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let banking of (profile$ | async).bankings">
+          <td><input class="text-primary" type="radio" name="banking" [checked]="banking.flagPrimary"
+                     (change)="onAccountSelect('bank',banking.bankUuid)"></td>
+          <td><i class="far fa-money-check-alt"></i></td>
+          <td>{{banking.bankName}}</td>
+          <td>{{banking.accountType}}</td>
+          <td>{{banking.accountNumber | accountNumber}}</td>
+          <td>
+            <button class="btn-secondary" (click)="deleteBankAccount(banking.bankUuid)" *ngIf="!banking.flagPrimary">
+              Delete
+            </button>
+          </td>
+        </tr>
+        <tr *ngFor="let paypal of (profile$ | async).paypals">
+          <td><input class="text-primary" type="radio" name="banking" [checked]="paypal.flagPrimary"
+                     (change)="onAccountSelect('paypal',paypal.paypalUuid)"></td>
+          <td><i class="fab fa-cc-paypal"></i></td>
+          <td>{{paypal.paypal}}</td>
+          <td></td>
+          <td></td>
+          <td>
+            <button class="btn-secondary" (click)="deletePaypalAccount(paypal.paypalUuid)"
+                    *ngIf="!paypal.flagPrimary">Delete
+            </button>
+          </td>
+        </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+  <div class="col-5 mb-3">
+    <img width="400px" height="300px" src="assets/img/computer.png">
+  </div>
+</div>

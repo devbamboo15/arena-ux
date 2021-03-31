@@ -1,0 +1,28 @@
+.btn-back{
+  cursor: pointer;
+  i{
+    font-size: 20px;
+  }
+}
+::ng-deep {
+  .user-area {
+    display: flex;
+    align-items: center;
+
+    a {
+      cursor: pointer;
+    }
+
+    .user-name {
+      text-align: center;
+    }
+
+    img {
+      width: 26px;
+      height: 26px;
+      border-radius: 13px;
+      border: 2px solid #ffffff;
+      cursor: pointer;
+    }
+  }
+}

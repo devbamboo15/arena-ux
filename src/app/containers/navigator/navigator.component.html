@@ -1,0 +1,45 @@
+<div class="header">
+  <div class="header-body">
+    <h1 class="header-title">
+      Navigation Panel
+    </h1>
+    <p class="header-subtitle">
+      Navigation Panel component used as header for all products, it can contain internal navigation, external(global)
+      links and user area.
+    </p>
+  </div>
+</div>
+<div class="mb-3">
+  <div class="mb-4">
+    <h2 class="mb-2">Usage</h2>
+    <p class="text-muted mb-2">
+      It has 2 slots for additional content start and end, which can be placed as content for the component, see example
+      below for details start slot components placed before navigation items list and end slot components placed right
+      at the end of the panel.
+    </p>
+    <div class="card">
+      <div class="card-body">
+        <aux-navigation-panel>
+          <ng-container start>
+            <aux-brand project="ux"></aux-brand>
+          </ng-container>
+          <ng-container end>
+            <aux-user></aux-user>
+          </ng-container>
+        </aux-navigation-panel>
+      </div>
+      <div class="card-footer">
+        <div>
+          <tabset>
+            <tab heading="html">
+              <pre><code [highlight]="code11" [languages]="['html']" [lineNumbers]="true"></code></pre>
+            </tab>
+            <tab heading="component">
+              <pre><code [highlight]="code12" [languages]="['typescript']" [lineNumbers]="true"></code></pre>
+            </tab>
+          </tabset>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

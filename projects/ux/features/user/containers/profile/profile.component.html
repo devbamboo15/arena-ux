@@ -1,0 +1,27 @@
+<div class="profile-header">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <i class="fad fa-user-alt"></i> Profile
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="./address" routerLinkActive="active">
+        <i class="far fa-map-marked-alt"></i> Address
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="./contact" routerLinkActive="active">
+        <i class="fad fa-handshake-alt"></i> Contact
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="./payment" routerLinkActive="active">
+        <i class="fal fa-money-check-edit"></i> Payment
+      </a>
+    </li>
+  </ul>
+</div>
+<div class="pt-3 pb-3">
+  <router-outlet></router-outlet>
+</div>

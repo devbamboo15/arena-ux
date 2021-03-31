@@ -1,0 +1,56 @@
+::ng-deep {
+  .aux-profile-content-wrapper {
+
+    .aux-content-heading {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .aux-content {
+      display: flex;
+      justify-content: space-between;
+
+      @media (max-width: 767px) {
+        flex-direction: column;
+
+        .btn-lg {
+          padding: 4px;
+          width: 200px !important;
+        }
+      }
+
+      .aux-profile-container {
+        padding: 1rem;
+        max-width: 700px;
+        border-radius: 5px;
+        height: 100%;
+        border: 2px solid var(--primary);
+
+        .aux-profile-container-content {
+          padding: 5px;
+          display: flex;
+          flex-direction: column;
+
+          .input-content {
+            max-width: 100%;
+            padding: 5px;
+            width: 100%;
+          }
+        }
+
+      }
+
+      .aux-profile-list-content {
+        padding: 10px;
+        background: var(--gray);
+        color: var(--text);
+
+        .aux-profile-btn-inline {
+          display: inline-block;
+          width: 80px !important;
+        }
+      }
+    }
+  }
+}

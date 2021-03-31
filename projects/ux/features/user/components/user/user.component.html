@@ -1,0 +1,49 @@
+<div class="user-area">
+  <ng-container *ngIf="isAuthorized$ | async">
+    <div *ngIf="(profile$ | async) as profile; else loadingUser" class="dropdown" dropdown routerLinkActive="active"
+         placement="bottom right">
+      <a class="dropdown-toggle" dropdownToggle role="button"
+         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="avatar avatar-xs">
+          <img [src]="profile.avatar" [alt]="profile.name" class="avatar-img rounded-circle">
+        </div>
+      </a>
+      <div class="dropdown-menu user-dropdown dropdown-menu-right" *dropdownMenu aria-labelledby="navbarDropdown">
+        <div class="user-name py-3">
+          {{profile.name}}
+        </div>
+        <ng-container *ngFor="let item of items">
+          <a *ngIf="item.onClick" class="dropdown-item" (click)="item.onClick()">
+            <i [class]="item.iconCss"></i> {{item.label}}
+          </a>
+          <a *ngIf="!item.onClick" class="dropdown-item" [routerLink]="item.link">
+            <i [class]="item.iconCss"></i> {{item.label}}
+          </a>
+        </ng-container>
+        <span class="divider dropdown-divider"></span>
+        <a (click)="logout()" class="dropdown-item">
+          <i class="fal fa-sign-out"></i> Logout
+        </a>
+      </div>
+    </div>
+    <ng-template #loadingUser>
+      <i class="fas fa-circle-notch fa-spin text-white"></i>
+    </ng-template>
+  </ng-container>
+  <ng-container *ngIf="(isAuthorized$ | async) === false">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a [routerLink]="storeConfiguration.signInURL" class="nav-link">
+          <i class="fad fa-sign-in-alt"></i>
+          Sign In
+        </a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="storeConfiguration.signUpURL" class="nav-link">
+          <i class="fad fa-user-plus"></i>
+          Sign Up
+        </a>
+      </li>
+    </ul>
+  </ng-container>
+</div>
